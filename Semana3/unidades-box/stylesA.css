@@ -1,0 +1,218 @@
+.caja-demo{
+    padding:20px;
+    background-color: #181825;
+    border-radius: 8px;
+    max-width: 800px;
+}
+
+.caja-demo > div {
+    padding: 16px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    color:#1e1e1e;
+    font-weight: 600;
+}
+
+.px-200{
+    width: 200px;
+    background-color: #89b4f4;
+}
+
+.px-300{
+    width: 300px;
+    background-color: #cba6f7;
+}
+
+.px-400{
+    width: 400px;
+    background-color: #a6e3a1;
+}
+
+.padre{
+    width: 600px;
+    /* padding: 20px; */
+    background-color: #181825;
+    /* border: 2px solid #45475a; */
+    border-radius: 8px;
+}
+
+.padre > div{
+    /* padding: 16px; */
+    margin-bottom: 8px;
+    border-radius: 6px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    color:#1e1e1e;
+    font-weight: 600;
+}
+
+.hijo-50{
+    background-color: #89b4fa;
+    width: 50%;
+}
+
+.hijo-75{
+    background-color: #cba6f7;
+    width: 75%;
+}
+
+.hijo-100{
+    background-color: #a6e3a1;
+    width: 100%;
+}
+
+.contenedor-fluido{
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: #313244;
+    border-radius: 8px;
+    color: #bac2de;
+}
+
+
+
+/*CONTENEDOR 2 COLUMNAS*/
+.layout-dos-columnas {
+    display: flex; /* ESTO ES FLEXBOX*/
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.sidebar-layout {
+    width: 30%;
+    min-width: 200px;
+    background: #313244;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.sidebar-layout h3 {
+    color: #89B4FA;
+    margin-bottom: 12px;
+}
+
+.sidebar-layout ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-layout li {
+    padding: 8px 0;
+    color: #BAC2DE;
+    border-bottom: 1px solid #45475A;
+    font-size: 14px;
+}
+
+.contenido-layout {
+    width: 70%;
+    background: #313244;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.contenido-layout h2 {
+    color: #CDD6F4;
+    margin-bottom: 12px;
+}
+
+.contenido-layout p {
+    color: #BAC2DE;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+
+.padre-em{
+    font-size: 16px;
+    background: #313244;
+    padding: 16px;
+    border-radius: 8px;
+    color: #BAC2DE;
+    max-width: 600px;
+}
+
+.hijo-em {
+    font-size: 1.5em; /* 16px × 1.5 = 24px */
+    background: #45475A;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 8px;
+}
+
+.nieto-em {
+    font-size: 1.5em; /* 24px × 1.5 = 36px !!! */
+    background: #585B70;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 8px;
+    color: #F9E2AF;
+}
+
+.padre-rem {
+    font-size: 50px; /* Esto NO afecta a rem */
+    background: #313244;
+    padding: 16px;
+    border-radius: 8px;
+    color: #BAC2DE;
+    max-width: 600px;
+}
+
+.hijo-rem {
+    font-size: 1.5rem; /* 16px × 1.5 = 24px (usa el root, no el padre) */
+    background: #45475A;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 8px;
+}
+
+.nieto-rem {
+    font-size: 1.5rem; /* 16px × 1.5 = 24px (sigue siendo el root!) */
+    background: #585B70;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 8px;
+    color: #A6E3A1;
+}
+
+
+
+
+
+.hero-vh {
+    height: 100vh;
+    background: linear-gradient(135deg, #1E1E2E, #313244);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-vh h1 {
+    font-size: 3rem;
+    color: #CDD6F4;
+    margin-bottom: 1rem;
+}
+
+.hero-vh p {
+    color: #6C7086;
+    font-size: 1.25rem;
+}
+
+.siguiente {
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #BAC2DE;
+}
+
+.titulo-vw{
+    font-size: 8vh;
+    color: #cdd6f4;
+    text-align: center;
+    padding: 2rem;
+}

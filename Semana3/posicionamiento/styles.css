@@ -1,0 +1,170 @@
+.contenedor{
+    background-color: #181825;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+}
+
+.caja{
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    color:#1e1e1e;
+}
+
+.caja-1{
+    position: static;
+    top:50px;
+    left:100px;
+    background-color: #89b4fa;
+}
+
+.caja-2{
+    position: absolute;
+    top:50px;
+    left:100px;
+    background-color: #a6e3a1;
+}
+
+.caja-3{
+    background-color: #f38ba8;
+}
+
+.contenedor-abs{
+    margin-top: 10px;
+    background-color: #181825;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    position: relative;
+}
+
+.contenedor-abs .caja{
+    padding: 16px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background-color: #313244;
+}
+
+.caja-absoluta{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #f38ba8 !important;
+    color: #1e1e1e;
+}
+
+.icono-con-badge {
+    position: relative;  /* Referencia para el badge */
+    display: inline-block;
+    padding: 8px;
+}
+
+.icono-notif {
+    color: #CDD6F4;
+}
+
+.badge-num {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #F38BA8;
+    color: #1E1E2E;
+    font-size: 11px;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #1E1E2E;
+}
+
+.elconte{
+    position: relative;
+    height: 200px;
+    background-color: gray;
+}
+
+.elemento{
+    position: absolute;
+    top:50%;
+    left: 50%;
+}
+
+
+.card-abs{
+    position: relative;
+    max-width: 350px;
+    background-color: #313244;
+    border: 1px solid #45475a;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.card-abs img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body{
+    padding: 20px;
+}
+
+.card-body h3{
+    color: #cdd6f4;
+}
+
+.card-body p{
+    color: #6c7086;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.card-price{
+    color: #a6e3a1;
+    font: 1.5rem;
+    font-weight: 700;
+}
+
+.card-badge{
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #F38BA8;
+    color: #1E1E2E;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    padding: 4px 12px 4px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    z-index: 1;
+}
+
+.card-fav{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    background: rgba(30, 30, 46, 0.7);
+    backdrop-filter: blur(4px);
+    border: none;
+    border-radius: 50%;
+    color: #CDD6F4;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 1;
+}
+
+.card-fav:hover {
+    background: #F38BA8;
+    color: #ff0000;
+}

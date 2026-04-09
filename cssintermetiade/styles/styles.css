@@ -1,0 +1,120 @@
+/*=======================================
+  RESET DE ESTILOS DEL NAVEGADOR
+=======================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1E1E2E;
+    color: #CDD6F4;
+    line-height: 1.6;
+}
+
+/* ---    Header y Navegacion   ---   */
+#main-header {
+    background-color: #181825;
+    border-bottom: 1px solid #45475A;
+    padding: 0 2rem;
+}
+.nav-principal {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 64px;
+}
+.nav-principal .logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #89b4fa;
+    text-decoration: none;
+}
+/*Selector descendiente: ul dentro de la clase del nav*/
+.nav-principal ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+ .nav-principal ul li a {
+    text-decoration: none;
+    color:#6c7086;
+    font-size: 0.875rem;
+    transition: color 0.3s;
+}
+
+.nav-principal ul li a:hover {
+    color:#cdd6f4
+}
+
+.nav-principal ul li.destacado a{
+    color: #a6e3a1;
+    font-weight: 600;
+}
+
+/*Secciones*/
+.seccion {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    border-bottom: 1px solid #313244;
+}
+
+.seccion h2{
+    font-size: 1.75rem;
+    color: #cdd6f4;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #89b4f4;
+    display: inline-block;
+}
+
+.seccion h3{
+    font-size: 1.25rem;
+    color: #bac2de;
+    margin: 2rem 0 1rem;
+}
+
+.ejemplo-codigo {
+    background: #313244;
+    border: 1px solid #45475A;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: #A6E3A1;
+}
+
+/* ============================================
+   TEMA 1: SELECTORES DESCENDIENTES
+   ============================================ */
+
+/* Tarjetas - selector de clase */
+.tarjeta {
+    background: #313244;
+    border: 1px solid #45475A;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.tarjeta p.destacado{
+    color: #f9e2af;
+    font-weight: 600;
+    border-left: 3px solid #f9e2af;
+    padding-left: 0.75rem;
+}
+
+
+.tarjeta p.destacado code{
+    color: #89b4fa;
+}

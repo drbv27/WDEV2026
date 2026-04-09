@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Unidades CSS</h1>
+    <div class="caja-demo">
+        <div class="px-200">200px</div>
+        <div class="px-300">300px</div>
+        <div class="px-400">400px</div>
+    </div>
+    <hr>
+    <div class="padre">
+        <div class="hijo-50">50%</div>
+        <div class="hijo-75">75%</div>
+        <div class="hijo-100">100%</div>
+    </div>
+    <hr>
+    <div class="contenedor-fluido">
+        <p>Este contenedor se adapta al navegador pero nunca pasa de 800 px. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, dicta hic. Alias ad fuga libero earum facilis cum quasi odit architecto unde optio possimus veritatis delectus esse repudiandae temporibus in enim accusamus, nesciunt nulla dolore assumenda similique ut suscipit. Architecto et veniam doloremque, quas quam eius vel ratione pariatur id, similique magni officiis quibusdam ex molestias accusamus, sit nam? Ratione vitae accusamus sit corrupti sunt voluptates deleniti quisquam corporis voluptatem aut accusantium officiis ex harum, ipsum assumenda atque blanditiis minima quasi expedita minus. Ab consequatur aliquam nemo voluptatum assumenda labore! Perferendis iure neque molestias aut modi placeat, iste corporis possimus?</p>
+    </div>
+    <hr>
+    <div class="layout-dos-columnas">
+        <aside class="sidebar-layout">
+            <h3>Menu</h3>
+            <ul>
+                <li>Inicio</li>
+                <li>Productos</li>
+                <li>Contacto</li>
+            </ul>
+        </aside>
+        <main class="contenido-layout">
+            <h2>Contenido Principal</h2>
+            <p>Este es el area de contenido. Ocupa el espacio restante al lado del sidebar.</p>
+            <p>Redimensiona el navegador para ver como ambas columnas se adaptan proporcionalmente.</p>
+        </main>
+    </div>
+    <div>
+        <h2>Relativo al padre em y relativo al root rem</h2>
+        <div class="padre-em">
+            Padre: 16px
+            <div class="hijo-em">
+                Hijo: 1.5em = 24px
+                 <div class="nieto-em">
+                    Nieto: 1.5em = 36px (CUIDADO!)
+                </div>
+            </div>
+        </div>
+    </div>
+<hr>
+    <div class="padre-rem">
+        Padre
+        <div class="hijo-rem">
+            Hijo: 1.5rem = 24px
+            <div class="nieto-rem">
+                Nieto: 1.5rem = 24px (IGUAL que el hijo!)
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h2>Unidades de viewport</h2>
+        <section class="hero-vh">
+            <h1>Bienvenido</h1>
+            <p>Esta seccion ocupa toda la pantalla</p>
+        </section>
+        <section class="siguiente">
+            <p>Y esto viene despues del scroll</p>
+        </section>
+    </div>
+
+    <h2 class="titulo-vw">CSS ES GENIAL</h2>
+
+</body>
+</html>

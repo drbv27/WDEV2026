@@ -1,0 +1,20 @@
+h1 {
+    color:navy
+}
+
+p {
+    color:fuchsia
+}
+
+.naranjadito {
+    color:orangered
+}
+
+#verdecito {
+    color: green;
+}
+
+#fondito{
+    background-color: lightpink;
+    border: salmon solid 1px;
+}

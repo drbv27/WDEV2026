@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>CSS Intermedio</title>
+</head>
+<body>
+    <!--*******************************************-->
+    <!--       Selectores descendientes            -->
+    <!--*******************************************-->
+    <header id="main-header">
+        <nav class="nav-principal">
+            <a href="#" class="logo">CSS Intermedio</a>
+            <ul>
+                <li><a href="#">Selectores</a></li>
+                <li><a href="#">Pseudo Clases</a></li>
+                <li><a href="#">Box Model</a></li>
+                <li><a href="#">Position</a></li>
+                <li class="destacado"><a href="#" >Ejercicio Final</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!--Selectores descendientes-->
+        <section id="selectores" class="seccion">
+            <h2>1. Selectores descendientes</h2>
+            <p>Los selectores descendientes permiten seleccionar elementos que estan <strong>dentro</strong> de otros elementos.</p>
+            <div class="ejemplo-codigo">
+                <code>header nav a {color:white;}</code>
+            </div>
+            <article class="tarjeta">
+                <h3>Tarjeta de ejemplo</h3>
+                <p>Este parrafo esta dentro de una tarjeta dentro de un article.</p>
+                <p class="destacado">Este parrafo tiene la clase <code>.destacado</code></p>
+                <ul>
+                    <li>Elemento de la lista 1</li>
+                    <li>Elemento de la lista 2</li>
+                    <li>Elemento de la lista 3</li>
+                </ul>
+            </article>
+            <article class="tarjeta">
+                <h3>Segunda tarjeta</h3>
+                <p>Los selectores pueden combinar tipo, clase, id</p>
+                <a href="#" class="btn">Boton dentro del article</a>
+            </article>
+        </section>
+
+    </main>
+</body>
+</html>
