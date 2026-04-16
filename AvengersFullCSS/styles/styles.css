@@ -106,10 +106,44 @@ h1,h2,h3{
     height: auto;
 }
 
-/*check box oculto*/
-.header_checkbox{
-    display: none;
+/* Checkbox oculto (el truco es usar :checked) */
+.header__checkbox {
+  display: none;
 }
+
+/* Icono hamburguesa: 3 lineas con Flexbox column */
+.header__hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 51;
+  padding: var(--space-xs);
+}
+
+.header__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animacion hamburguesa -> X cuando checkbox esta checked */
+.header__checkbox:checked ~ .header__hamburger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header__checkbox:checked ~ .header__hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.header__checkbox:checked ~ .header__hamburger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 
 .header_nav{
     position: absolute;
@@ -124,20 +158,98 @@ h1,h2,h3{
     transition: max-height 0.4s ease;
 }
 
-.header_nav ul{
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-md);
-    gap: var(--space-xs)
+/* Cuando el checkbox esta checked, el nav se expande */
+.header__checkbox:checked ~ .header__nav {
+  max-height: 400px;
 }
 
-.header_nav a{
-    display: flex;
-    align-items: center;
-    gap:0.5rem;
-    padding: var(--space-sm) var(--space-md);
-    color:var()
+/* Links del nav: Flexbox column en mobile */
+.header__nav ul {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md);
+  gap: var(--space-xs);
 }
+
+.header__nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--muted);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.header__nav a i {
+  font-size: 0.85em;
+  width: 1.1em;
+  text-align: center;
+}
+
+.header__nav a:hover,
+.header__nav a:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+
+/* Boton CTA dentro del nav */
+.header__nav .nav-cta {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+}
+
+.header__nav .nav-cta:hover {
+  background: #ff4d4d;
+}
+
+/* ========================================
+   6. HERO (CSS Grid Stacking + Overlay)
+   ========================================
+   Tecnica clave: multiples elementos en la
+   misma celda del Grid se apilan visualmente
+   (como capas de Photoshop). z-index controla
+   cual queda encima.
+
+   Capas (de abajo hacia arriba):
+   1. hero__bg       - imagen de fondo
+   2. hero__overlay   - gradiente semitransparente
+   3. hero__fury      - Nick Fury (z-index: 2)
+   4. hero__content   - texto y botones (z-index: 2)
+   ======================================== */
+
+    .hero{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        min-height: clamp(28rem,75vh,42rem);
+        overflow: hidden;
+    }
+
+    /*imagen ocupa todo el grid*/
+    .hero_bg{
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero_overlay{
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+  /*         background: linear-gradient(
+            110deg,
+        rgba(0, 0, 128, 0.85) 0%,
+        rgba(5, 7, 13, 0.6) 50%,
+        rgba(237, 29, 36, 0.3) 100%
+        ); */
+        background-color: rgba(255,0,0,0.3);
+    }
 
 
 
@@ -145,7 +257,7 @@ h1,h2,h3{
     .header_nav{
         position: static;
         max-height: none;
-        background: trasparent;
+        background: transparent;
         backdrop-filter: none;
         border-bottom: none;
         overflow: visible;
