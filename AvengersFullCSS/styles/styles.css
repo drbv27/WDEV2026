@@ -11,16 +11,23 @@
     --bg:#05070d;
     --text:#eef2ff;
     --line:rgba(255,255,255,0.12);
+    --muted:#c0c8de;
 
     /*Tipografia*/
     --font-heading:"Bebas Neue", Impact, sans-serif;
     --font-base:"Inter",system-ui,sans-serif;
     --max-width:1120px;
 
+    /*Bordes y radios*/
+    --radius:1rem;
+    --radius-sm:0.5rem;
+    --radius-pill:999px;
+
 
     /*Espaciados*/
     --space-xs:0.5rem;
     --space-sm:0.75rem;
+    --space-md:1rem;
 
 }
 /*Reset y Estilos Base*/
@@ -73,7 +80,7 @@ h1,h2,h3{
     z-index: 50;
     background: rgba(5,7,13,0.88);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid;
+    border-bottom: 1px solid var(--line);
 }
 
 .header_inner{
@@ -102,4 +109,61 @@ h1,h2,h3{
 /*check box oculto*/
 .header_checkbox{
     display: none;
+}
+
+.header_nav{
+    position: absolute;
+    top:100%;
+    left: 0;
+    right: 0;
+    background: rgba(5,7,13,0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.header_nav ul{
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    gap: var(--space-xs)
+}
+
+.header_nav a{
+    display: flex;
+    align-items: center;
+    gap:0.5rem;
+    padding: var(--space-sm) var(--space-md);
+    color:var()
+}
+
+
+
+@media(min-width:768px){
+    .header_nav{
+        position: static;
+        max-height: none;
+        background: trasparent;
+        backdrop-filter: none;
+        border-bottom: none;
+        overflow: visible;
+    }
+
+    .header_nav ul{
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        gap:0.3rem
+    }
+
+    .header_nav a{
+        padding: 045rem 0.85rem;
+        font-size: 0.9rem;
+        border-radius: var(--radius-pill);
+    }
+}
+@media(min-width:1024px){
+
 }
