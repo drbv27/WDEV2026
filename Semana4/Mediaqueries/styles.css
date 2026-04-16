@@ -1,0 +1,95 @@
+/*sintaxis basica*/
+/*mobile first*/
+
+h1{
+    font-size: 2rem;
+    color: #cdd6f4;
+}
+
+/*estos estilos solo se aplican cuando la pantalla tiene al menos 768px*/
+
+@media(min-width:768px){
+    h1{
+        font-size: 3rem;
+        color: red;
+    }
+}
+
+
+/*base movil*/
+.contenedor{
+    padding: 16px;
+    font-size: 14px;
+    background-color: aqua;
+}
+
+
+
+
+
+
+
+/*tablet*/
+@media(min-width:768px){
+    .contenedor{
+        padding: 24px;
+        font-size: 24px;
+        background-color: darkkhaki;
+    }
+}
+
+/*escritorio*/
+@media(min-width:1024px){
+    .contenedor{
+        padding: 32px;
+        font-size: 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: lightpink;
+    }
+}
+
+
+
+.elcontenedor{
+    background-color: black;
+    padding: 4px;
+}
+
+.item1{
+    background-color: aqua;
+    padding: 8px;
+}
+
+.item2{
+    background-color: lightsalmon;
+    padding: 8px;
+}
+
+.item3{
+    background-color: lemonchiffon;
+    padding: 8px;
+}
+
+
+/*tablet*/
+@media(min-width:768px){
+    .elcontenedor{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 24px;
+        font-size: 24px;
+    }
+}
+
+/*escritorio*/
+@media(min-width:1024px){
+    .elcontenedor{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 32px;
+        font-size: 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
