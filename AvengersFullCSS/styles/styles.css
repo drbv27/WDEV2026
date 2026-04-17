@@ -355,6 +355,67 @@ h1,h2,h3{
     .btn--ghost:hover{
         background: rgba(255,255,255,0.35);
     }
+
+    /* ========================================
+   BARRA DE CONTACTO RAPIDO (Flexbox)
+   ========================================
+   Column en movil, row en tablet+.
+   Cada campo tiene un icono posicionado con
+   Flexbox interno.
+   ======================================== */
+
+   .quick-contact{
+    background: var(--surface);
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+   }
+
+   .quick-contact__inner{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+   }
+
+   .quick-contact__field{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+   }
+
+   .quick-contact__field i{
+    padding: 0 0.85rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+   }
+
+   .quick-contact__field input{
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    padding: 0.7rem 0.5rem;
+    font: inherit;
+    font-size: 0.95rem;
+    outline: none;
+   }
+
+   .quick-contact input::placeholder{
+    color:#7a85a0
+   }
+
+   .quick-contact__field:focus-within{
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
+   }
+
+
+
 /* ========================================
    MEDIA QUERIES - Mobile First
    ======================================== */
@@ -393,9 +454,47 @@ h1,h2,h3{
   .hero{
     grid-template-columns: repeat(12,1fr);
   }
+
+  .hero__bg{
+    grid-column: 1/-1;
+  }
+
+  .hero__overlay{
+    grid-column: 1/-1;
+  }
+
+  /*Nick fury aparece y ocupa columnas 1-4 lado izquierdo*/
+  .hero__fury{
+    display: block;
+    grid-column: 1/5;
+    grid-row: 1/-1;
+    z-index: 2;
+    align-self: end;
+    padding-left: var(--space-lg);
+  }
+
+  .hero__fury img{
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    filter:drop-shadow(0 0 30px rgba(0,0,0,0.6))
+  }
+
+  .hero__content{
+    grid-column: 5/12;
+    padding: var(--space-xl) var(--space-md);
+  }
+
+    .quick-contact__inner{
+    flex-direction: row;
+    gap: var(--space-md);
+   }
 }
 
 /* DESKTOP (1024px+) */
 @media (min-width: 1024px) {
-  /* Aqui agregaremos ajustes para desktop mas adelante */
+  .hero__fury{
+    max-width: 340px;
+  }
+    
 }
