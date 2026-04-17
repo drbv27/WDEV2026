@@ -34,6 +34,10 @@
   --space-md: 1rem;
   --space-lg: 2rem;
   --space-xl: 4rem;
+
+  /* Sombras */
+    --shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 /*Reset y Estilos Base*/
 *,
@@ -414,6 +418,117 @@ h1,h2,h3{
     box-shadow: 0 0 0 2px rgba(59,130,246,0.25);
    }
 
+   /*Secciones estructura comun reutilizable*/
+   .section{
+    padding-block: var(--space-xl);
+   }
+
+   .section-dark{
+        background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.02),
+        rgba(255, 255, 255, 0.005)
+        );
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+   }
+
+   .section__header{
+    max-width: 48rem;
+    margin-bottom: var(--space-lg);
+   }
+
+   .section__header--center{
+    text-align: center;
+    margin-inline: auto;
+   }
+
+   .section__header p{
+    margin-top: 0.5rem;
+    color: var(--muted);
+   }
+
+   .section__kicker{
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.74rem;
+    color: #93c5fd;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.section__header--center .section__kicker {
+  justify-content: center;
+}
+
+h2{
+    font-size: clamp(1.8rem,4vw,3rem);
+}
+
+/*pseudo elemento decorativo debajo del h2*/
+.section__header h2::after{
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary),#ff4d4d);
+    margin-top: 0.6rem;
+    border-radius: 2px;
+}
+
+/*grid para tarjetas de batallas*/
+
+.batles-grid{
+    display: grid;
+    gap: var(--space-md);
+}
+
+.battle-card{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease ,border-color 0.3s ease;
+}
+
+.battle-card:hover{
+    transform: translateY(-4px);
+    border-color: rgba(59,130,246,0.45);
+}
+
+/*video responsive con aspect ratio*/
+.battle-card__video{
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.battle-card__video iframe{
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.battle-card__body{
+    padding: var(--space-md);
+}
+
+.battle-card__body h3{
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    letter-spacing: 0.04rem;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.battle-card__body i{
+    color: var(--primary);
+    font-size: 0.9rem;
+}
 
 
 /* ========================================
