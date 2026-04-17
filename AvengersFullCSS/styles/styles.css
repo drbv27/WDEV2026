@@ -7,28 +7,33 @@
    refleja en toda la pagina.
    ======================================== */
 :root {
-    /*Colores*/
-    --bg:#05070d;
-    --text:#eef2ff;
-    --line:rgba(255,255,255,0.12);
-    --muted:#c0c8de;
+  /* Colores */
+  --bg: #05070d;
+  --surface: #0f1526;
+  --text: #eef2ff;
+  --muted: #c0c8de;
+  --primary: #ed1d24;
+  --primary-glow: rgba(237, 29, 36, 0.35);
+  --secondary: #3b82f6;
+  --accent: #fda4af;
+  --line: rgba(255, 255, 255, 0.12);
 
-    /*Tipografia*/
-    --font-heading:"Bebas Neue", Impact, sans-serif;
-    --font-base:"Inter",system-ui,sans-serif;
-    --max-width:1120px;
+  /* Tipografia */
+  --font-heading: "Bebas Neue", Impact, sans-serif;
+  --font-base: "Inter", system-ui, sans-serif;
+  --max-width: 1120px;
 
-    /*Bordes y radios*/
-    --radius:1rem;
-    --radius-sm:0.5rem;
-    --radius-pill:999px;
+  /* Bordes y radios */
+  --radius: 1rem;
+  --radius-sm: 0.5rem;
+  --radius-pill: 999px;
 
-
-    /*Espaciados*/
-    --space-xs:0.5rem;
-    --space-sm:0.75rem;
-    --space-md:1rem;
-
+  /* Espaciados */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
 }
 /*Reset y Estilos Base*/
 *,
@@ -71,47 +76,55 @@ h1,h2,h3{
     line-height: 1.15;
 }
 
-
-
-/* HEADER */
-.header{
-    position:sticky;
-    top:0;
-    z-index: 50;
-    background: rgba(5,7,13,0.88);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
+/* Contenedor centrado con ancho maximo */
+.container {
+  width: min(100% - 2rem, var(--max-width));
+  margin-inline: auto;
 }
 
-.header_inner{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 4rem;
-    position: relative;
+/* ========================================
+   HEADER (Flexbox + Checkbox Hamburger)
+   ======================================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(5, 7, 13, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
 }
 
-.header_brand{
-    display: flex;
-    align-items: center;
-    gap:var(--space-sm);
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    letter-spacing: 0.08;
-    z-index: 51;
+/* Flexbox: distribuye marca y navegacion */
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4rem;
+  position: relative;
 }
 
-.header_brand img{
-    width: 2.5rem;
-    height: auto;
+/* Marca: Flexbox para logo + texto en linea */
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  z-index: 51;
 }
 
-/* Checkbox oculto (el truco es usar :checked) */
+.header__brand img {
+  width: 2.5rem;
+  height: auto;
+}
+
+/* Checkbox oculto (solo usamos su estado :checked) */
 .header__checkbox {
   display: none;
 }
 
-/* Icono hamburguesa: 3 lineas con Flexbox column */
+/* Icono hamburguesa: 3 lineas apiladas con Flexbox */
 .header__hamburger {
   display: flex;
   flex-direction: column;
@@ -131,7 +144,7 @@ h1,h2,h3{
   transform-origin: center;
 }
 
-/* Animacion hamburguesa -> X cuando checkbox esta checked */
+/* Animacion: cuando checkbox esta :checked, las 3 lineas forman una X */
 .header__checkbox:checked ~ .header__hamburger span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -144,26 +157,26 @@ h1,h2,h3{
   transform: translateY(-7px) rotate(-45deg);
 }
 
-
-.header_nav{
-    position: absolute;
-    top:100%;
-    left: 0;
-    right: 0;
-    background: rgba(5,7,13,0.96);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
+/* Nav en movil: oculto con max-height: 0 */
+.header__nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(5, 7, 13, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
 }
 
-/* Cuando el checkbox esta checked, el nav se expande */
+/* Al marcar el checkbox, el nav se expande */
 .header__checkbox:checked ~ .header__nav {
   max-height: 400px;
 }
 
-/* Links del nav: Flexbox column en mobile */
+/* Lista de links: Flexbox columna en movil */
 .header__nav ul {
   display: flex;
   flex-direction: column;
@@ -194,11 +207,10 @@ h1,h2,h3{
   color: var(--text);
 }
 
-/* Boton CTA dentro del nav */
+/* Boton CTA dentro del nav (el link "Unirse") */
 .header__nav .nav-cta {
   background: var(--primary);
   color: white;
-  text-align: center;
   justify-content: center;
   border-radius: var(--radius-pill);
 }
@@ -253,29 +265,43 @@ h1,h2,h3{
 
 
 
-@media(min-width:768px){
-    .header_nav{
-        position: static;
-        max-height: none;
-        background: transparent;
-        backdrop-filter: none;
-        border-bottom: none;
-        overflow: visible;
-    }
+/* ========================================
+   MEDIA QUERIES - Mobile First
+   ======================================== */
 
-    .header_nav ul{
-        flex-direction: row;
-        align-items: center;
-        padding: 0;
-        gap:0.3rem
-    }
+/* TABLET y mas (768px+) */
+@media (min-width: 768px) {
+  /* Oculta el hamburguer, ya no lo necesitamos */
+  .header__hamburger {
+    display: none;
+  }
 
-    .header_nav a{
-        padding: 045rem 0.85rem;
-        font-size: 0.9rem;
-        border-radius: var(--radius-pill);
-    }
+  /* Nav se vuelve parte normal del flujo */
+  .header__nav {
+    position: static;
+    max-height: none;
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
+    overflow: visible;
+  }
+
+  /* Lista de links: ahora en fila horizontal */
+  .header__nav ul {
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 0.3rem;
+  }
+
+  .header__nav a {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.9rem;
+    border-radius: var(--radius-pill);
+  }
 }
-@media(min-width:1024px){
 
+/* DESKTOP (1024px+) */
+@media (min-width: 1024px) {
+  /* Aqui agregaremos ajustes para desktop mas adelante */
 }

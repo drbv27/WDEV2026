@@ -10,38 +10,40 @@
     <!--Font Awesome 6: iconos via CDN (Solo sin CSS ni JS)-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <!--Nuestro CSS-->
-    <link rel="stylesheet" href="/AvengersFullCSS/styles/styles.css">
+    <link rel="stylesheet" href="./styles/styles.css">
     <title>S.H.I.E.L.D Portal | Avengers CSS Puro</title>
 </head>
 <body>
     <!--Skip Link para accesibilidad-->
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <!--HEADER - Flexbox+Checkbox hamburguer-->
-    <header class="header">
-        <div class="container header_inner">
-            <a href="#inicio" class="header_brand">
-                <img src="./assets/img/LogoLetra.png" alt="Logo Avengers">
-                <span>S.H.I.E.L.D</span>
-            </a>
-            <!--Checkbox hack: menu hamburguesa sin JS-->
-            <input type="checkbox" id="menu-toggle" class="header_checkbox">
-            <label for="menu-toggle" class="header_hamburguer" aria-label="Abrir menu de navegacion">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            <nav class="header_nav" aria-label="Navegacio Principal">
-                <ul>
-                    <li><a href="#inicio"> <i class="fa-solid fa-house"></i>Inicio</a></li>
-                    <li><a href="#batallas"> <i class="fa-solid fa-fire"></i>Batallas</a></li>
-                    <li><a href="#equipo"> <i class="fa-solid fa-users"></i>Equipo</a></li>
-                    <li><a href="#nosotros"> <i class="fa-solid fa-building"></i>Nosotros</a></li>
-                    <li><a href="#unirse"> <i class="fa-solid fa-building"></i>Unirse</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<!--HEADER - Flexbox + Checkbox hamburger-->
+<header class="header">
+  <div class="container header__inner">
+    <a href="#inicio" class="header__brand">
+      <img src="./assets/img/LogoLetra.png" alt="Logo Avengers">
+      <span>S.H.I.E.L.D</span>
+    </a>
+
+    <!--Checkbox hack: menu hamburguesa sin JS-->
+    <input type="checkbox" id="menu-toggle" class="header__checkbox">
+    <label for="menu-toggle" class="header__hamburger" aria-label="Abrir menu de navegacion">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <nav class="header__nav" aria-label="Navegacion Principal">
+      <ul>
+        <li><a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="#batallas"><i class="fa-solid fa-fire"></i> Batallas</a></li>
+        <li><a href="#equipo"><i class="fa-solid fa-users"></i> Equipo</a></li>
+        <li><a href="#nosotros"><i class="fa-solid fa-building"></i> Nosotros</a></li>
+        <li><a href="#unirse" class="nav-cta"><i class="fa-solid fa-shield-halved"></i> Unirse</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
     <main id="contenido">
         <!--HERO IMAGE - CSS GRID + OVERLAY + NICK FURY-->
         <section id="inicio" class="hero">
