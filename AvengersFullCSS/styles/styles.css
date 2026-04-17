@@ -260,11 +260,101 @@ h1,h2,h3{
         rgba(5, 7, 13, 0.6) 50%,
         rgba(237, 29, 36, 0.3) 100%
         ); */
-        background-color: rgba(255,0,0,0.3);
+        background-color: rgba(255,0,255,0.3);
     }
 
+    /*Nick fury oculto por defecto en movil*/
+    .hero__fury{
+        display:none;
+    }
 
+    /*Contenido del hero*/
+    .hero__content{
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+        z-index: 2;
+        align-self: center;
+        padding: var(--space-xl) var(--space-md);
+        display: flex;
+        flex-direction: column;
+        gap:var(--space-md)
+    }
 
+    /*Texto pequenio arriba del titulo*/
+    .hero__eyebrown{
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-size: 0.75rem;
+        color:var(--accent);
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap:0.5rem;
+    }
+
+    /*Titulo principal con tipografia fluida*/
+    h1{
+        font-size: clamp(2.2rem, 6vw ,4.5rem);
+    }
+    /*Palabra assemble en rojo*/
+    .text-accent{
+        color:var(--primary)
+    }
+
+    /*Descripcion*/
+    .hero__description{
+        color:var(--muted);
+        font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+        max-width: 50ch;
+    }
+
+    /*Contenedor botones*/
+    .hero__actions{
+        display: flex;
+        flex-wrap: wrap;
+        gap:var(--space-md);
+        margin-top: var(--space-xs);
+    }
+
+    .btn{
+        border: none;
+        border-radius: var(--radius-pill);
+        padding: 0.7rem 1.4rem;
+        font-family: inherit;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.45rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover{
+        transform: translateY(-2px);
+    }
+
+    /*Modifier Boton primario rojo con glow*/
+    .btn--primary{
+        background: linear-gradient(135deg, var(--primary), #ff4d4d);
+        color: white;
+        box-shadow: 0 8px 24px var(--primary-glow);
+    }
+
+    .btn--primary:hover{
+        box-shadow: 0 12px 32px var(--primary-glow);
+    }
+
+    .btn--ghost{
+        background: rgba(255, 255, 255, 0.25);
+        color:var(--text);
+        border: 1px solid var(--line);
+    }
+
+    .btn--ghost:hover{
+        background: rgba(255,255,255,0.35);
+    }
 /* ========================================
    MEDIA QUERIES - Mobile First
    ======================================== */
@@ -298,6 +388,10 @@ h1,h2,h3{
     padding: 0.45rem 0.85rem;
     font-size: 0.9rem;
     border-radius: var(--radius-pill);
+  }
+
+  .hero{
+    grid-template-columns: repeat(12,1fr);
   }
 }
 
