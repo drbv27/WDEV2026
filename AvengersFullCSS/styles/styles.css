@@ -537,7 +537,7 @@ h2{
 
 .team-grid{
     display: grid;
-    gap:var(--space-md)
+    gap:var(--space-md);
 }
 
 .team-card{
@@ -600,6 +600,64 @@ h2{
 
 .team-card:hover .team-car_avatar img{
     transform: scale(1.15);
+}
+
+.team-card_body h3{
+    font-size: 1.3rem;
+}
+
+.team-card_body p{
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+}
+
+.team-card_skills {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.team-card_skills li {
+    font-size: 0.73rem;
+    font-weight: 600;
+    color: #dbeafe;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    background: rgba(59, 130,246,0.1);
+}
+
+.team-card_socials {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--line);
+    width: 100%;
+}
+
+.team-card_socials a {
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--muted);
+    font-size: 0.85rem;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease transform 0.2s ease;
+}
+
+.team-card_socials a:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-2px);
 }
 
 /* ========================================
@@ -679,6 +737,10 @@ h2{
    .battles-grid{
     grid-template-columns: repeat(2,1fr);
    }
+
+   .team-grid {
+    grid-template-columns: repeat(2,1fr);
+   }
 }
 
 
@@ -691,6 +753,10 @@ h2{
   }
 
  .battles-grid{
+    grid-template-columns: repeat(4,1fr);
+ }
+
+ .team-grid{
     grid-template-columns: repeat(4,1fr);
  }
     
