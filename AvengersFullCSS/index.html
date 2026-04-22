@@ -44,281 +44,356 @@
     </nav>
   </div>
 </header>
-    <main id="contenido">
-        <!--HERO IMAGE - CSS GRID + OVERLAY + NICK FURY-->
-        <section id="inicio" class="hero">
-            <!--Capa1: Imagen Fondo ocupa todo el grid-->
+<main id="contenido">
+    <!--HERO IMAGE - CSS GRID + OVERLAY + NICK FURY-->
+    <section id="inicio" class="hero">
+        <!--Capa1: Imagen Fondo ocupa todo el grid-->
+        <img 
+            class="hero_bg"
+            src="./assets/img/Base-de-los-vengadores-y-el-Quinjet.jpg" 
+            alt=""
+            aria-hidden="true"
+        >
+        <!--Capa2: Overlay-->
+        <div class="hero_overlay"></div>
+        <!--Capa3: Nick Fury Posicionado sobre el overlay -->
+        <figure class="hero__fury">
             <img 
-                class="hero_bg"
-                src="./assets/img/Base-de-los-vengadores-y-el-Quinjet.jpg" 
-                alt=""
-                aria-hidden="true"
+                src="./assets/img/nickFury.png" 
+                alt="Nick Fury Director de SHIELD"
             >
-            <!--Capa2: Overlay-->
-            <div class="hero_overlay"></div>
-            <!--Capa3: Nick Fury Posicionado sobre el overlay -->
-            <figure class="hero__fury">
-                <img 
-                    src="./assets/img/nickFury.png" 
-                    alt="Nick Fury Director de SHIELD"
+        </figure>
+        <!--Capa4: Contenido de Texto y botones-->
+        <div class="hero__content">
+            <p class="hero__eyebrown">
+                <i class="fa-solid fa-satellite-dish"></i> 
+                Protocolo de reclutamiento activo
+            </p>
+            <h1>Avengers, <span class="text-accent">Assemble!</span></h1>
+            <p class="hero__description">
+                El mundo necesita heroes. S.H.I.E.L.D. ha activado la Iniciativa
+                Avengers para reunir a los individuos mas extraordinarios del planeta.
+            </p>
+            <div class="hero__actions">
+                <a href="#equipo" class="btn btn--primary">
+                    <i class="fa-solid fa-people-group"></i>
+                    Conocer al equipo
+                </a>
+                <a href="#nosotros" class="btn btn--ghost">
+                    <i class="fa-solid fa-file-signature"></i>
+                    Aplicar ahora
+                </a>
+            </div>
+        </div>
+    </section>
+    <!--Barra de contacto rapido flexbox-->
+    <section class="quick-contact">
+        <div class="container quick-contact__inner">
+            <div class="quick-contact__field">
+                <i class="fa-solid fa-user-secret"></i>
+                <input 
+                type="text"
+                placeholder="Tu nombre clave..."
+                aria-label="Nombre clave"
                 >
-            </figure>
-            <!--Capa4: Contenido de Texto y botones-->
-            <div class="hero__content">
-                <p class="hero__eyebrown">
-                    <i class="fa-solid fa-satellite-dish"></i> 
-                    Protocolo de reclutamiento activo
-                </p>
-                <h1>Avengers, <span class="text-accent">Assemble!</span></h1>
-                <p class="hero__description">
-                    El mundo necesita heroes. S.H.I.E.L.D. ha activado la Iniciativa
-                    Avengers para reunir a los individuos mas extraordinarios del planeta.
-                </p>
-                <div class="hero__actions">
-                    <a href="#equipo" class="btn btn--primary">
-                        <i class="fa-solid fa-people-group"></i>
-                        Conocer al equipo
-                    </a>
-                    <a href="#nosotros" class="btn btn--ghost">
-                        <i class="fa-solid fa-file-signature"></i>
-                        Aplicar ahora
-                    </a>
-                </div>
             </div>
-        </section>
-        <!--Barra de contacto rapido flexbox-->
-        <section class="quick-contact">
-            <div class="container quick-contact__inner">
-                <div class="quick-contact__field">
-                    <i class="fa-solid fa-user-secret"></i>
-                    <input 
-                    type="text"
-                    placeholder="Tu nombre clave..."
-                    aria-label="Nombre clave"
-                    >
-                </div>
-                <div class="quick-contact__field">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input 
-                        type="email"
-                        placeholder="Email del agente"
-                        aria-label="Email de agente"
-                    >
-                </div>
-                <button class="btn btn--primary" type="button">
-                    <i class="fa-regular fa-paper-plane"></i>
-                    Registrarse
-                </button>
+            <div class="quick-contact__field">
+                <i class="fa-solid fa-envelope"></i>
+                <input 
+                    type="email"
+                    placeholder="Email del agente"
+                    aria-label="Email de agente"
+                >
             </div>
-        </section>
-        <section class="section" id="batallas">
-            <div class="container">
-                <div class="section__header">
-                <p class="section__kicker">
-                    <i class="fa-solid fa-folder-open"></i> Archivos clasificados
-                </p>
-                <h2>Batallas legendarias</h2>
-                <p>
-                    Los enfrentamientos que definieron la historia de los Avengers y
-                    cambiaron el destino del universo.
-                </p>
-                </div>
-
-                <div class="battles-grid">
-                    <article class="battle-card">
-                        <div class="battle-card__video">
-                            <iframe
-                                src="https://www.youtube.com/embed/r4RiRmlmwC8"
-                                title="Batalla de Nueva York"
-                                loading="lazy"
-                                allowfullscreen
-                            ></iframe>
-                        </div>
-                        <div class="battle-card__body">
-                        <h3><i class="fa-solid fa-location-dot"></i> Batalla de Nueva York</h3>
-                        <p>
-                            El primer enfrentamiento donde los Avengers se unieron contra
-                            la invasion Chitauri liderada por Loki.
-                        </p>
-                        </div>
-                    </article>
-
-                    <article class="battle-card">
-                        <div class="battle-card__video">
-                            <iframe
-                                src="https://www.youtube.com/embed/GV9AEEIeHrQ"
-                                title="Guerra Civil"
-                                loading="lazy"
-                                allowfullscreen
-                            ></iframe>
-                        </div>
-                        <div class="battle-card__body">
-                        <h3><i class="fa-solid fa-bolt"></i> Guerra Civil</h3>
-                        <p>
-                            Heroe contra heroe. El equipo se dividio en una guerra
-                            ideologica sin precedentes entre Stark y Rogers.
-                        </p>
-                        </div>
-                    </article>
-
-                    <article class="battle-card">
-                        <div class="battle-card__video">
-                            <iframe
-                                src="https://www.youtube.com/embed/7E7-CNl5qUI"
-                                title="Batalla de Wakanda"
-                                loading="lazy"
-                                allowfullscreen
-                            ></iframe>
-                        </div>
-                        <div class="battle-card__body">
-                        <h3><i class="fa-solid fa-shield-halved"></i> Batalla de Wakanda</h3>
-                        <p>
-                            La ultima linea de defensa contra el ejercito de Thanos en las
-                            tierras sagradas de Wakanda.
-                        </p>
-                        </div>
-                    </article>
-
-                    <article class="battle-card">
-                        <div class="battle-card__video">
-                            <iframe
-                                src="https://www.youtube.com/embed/b7Roaw7r9XM"
-                                title="Endgame - Batalla Final"
-                                loading="lazy"
-                                allowfullscreen
-                            ></iframe>
-                        </div>
-                        <div class="battle-card__body">
-                        <h3><i class="fa-solid fa-infinity"></i> Batalla Final - Endgame</h3>
-                        <p>
-                            La batalla definitiva. Todos los heroes del universo unidos
-                            contra Thanos por el destino de la humanidad.
-                        </p>
-                        </div>
-                    </article>
-                </div>
+            <button class="btn btn--primary" type="button">
+                <i class="fa-regular fa-paper-plane"></i>
+                Registrarse
+            </button>
+        </div>
+    </section>
+    <section class="section" id="batallas">
+        <div class="container">
+            <div class="section__header">
+            <p class="section__kicker">
+                <i class="fa-solid fa-folder-open"></i> Archivos clasificados
+            </p>
+            <h2>Batallas legendarias</h2>
+            <p>
+                Los enfrentamientos que definieron la historia de los Avengers y
+                cambiaron el destino del universo.
+            </p>
             </div>
-        </section>
-        <section id="equipo" class="section section--dark">
-            <div class="container">
-                <div class="section__header section__header--center">
-                    <p class="section__kicker">
-                        <i class="fa-solid fa-star"></i> El equipo
-                        <h2>Conoce a los Avengers</h2>
-                        <p>
-                            Los heroes mas poderosos del planeta, reunidos bajo una misma
-                            causa: proteger el mundo.
-                        </p>
+
+            <div class="battles-grid">
+                <article class="battle-card">
+                    <div class="battle-card__video">
+                        <iframe
+                            src="https://www.youtube.com/embed/r4RiRmlmwC8"
+                            title="Batalla de Nueva York"
+                            loading="lazy"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                    <div class="battle-card__body">
+                    <h3><i class="fa-solid fa-location-dot"></i> Batalla de Nueva York</h3>
+                    <p>
+                        El primer enfrentamiento donde los Avengers se unieron contra
+                        la invasion Chitauri liderada por Loki.
                     </p>
+                    </div>
+                </article>
+
+                <article class="battle-card">
+                    <div class="battle-card__video">
+                        <iframe
+                            src="https://www.youtube.com/embed/GV9AEEIeHrQ"
+                            title="Guerra Civil"
+                            loading="lazy"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                    <div class="battle-card__body">
+                    <h3><i class="fa-solid fa-bolt"></i> Guerra Civil</h3>
+                    <p>
+                        Heroe contra heroe. El equipo se dividio en una guerra
+                        ideologica sin precedentes entre Stark y Rogers.
+                    </p>
+                    </div>
+                </article>
+
+                <article class="battle-card">
+                    <div class="battle-card__video">
+                        <iframe
+                            src="https://www.youtube.com/embed/7E7-CNl5qUI"
+                            title="Batalla de Wakanda"
+                            loading="lazy"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                    <div class="battle-card__body">
+                    <h3><i class="fa-solid fa-shield-halved"></i> Batalla de Wakanda</h3>
+                    <p>
+                        La ultima linea de defensa contra el ejercito de Thanos en las
+                        tierras sagradas de Wakanda.
+                    </p>
+                    </div>
+                </article>
+
+                <article class="battle-card">
+                    <div class="battle-card__video">
+                        <iframe
+                            src="https://www.youtube.com/embed/b7Roaw7r9XM"
+                            title="Endgame - Batalla Final"
+                            loading="lazy"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                    <div class="battle-card__body">
+                    <h3><i class="fa-solid fa-infinity"></i> Batalla Final - Endgame</h3>
+                    <p>
+                        La batalla definitiva. Todos los heroes del universo unidos
+                        contra Thanos por el destino de la humanidad.
+                    </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section id="equipo" class="section section--dark">
+        <div class="container">
+            <div class="section__header section__header--center">
+                <p class="section__kicker">
+                    <i class="fa-solid fa-star"></i> El equipo
+                    <h2>Conoce a los Avengers</h2>
+                    <p>
+                        Los heroes mas poderosos del planeta, reunidos bajo una misma
+                        causa: proteger el mundo.
+                    </p>
+                </p>
+            </div>
+
+            <div class="team-grid">
+                <!--Tarjeta 1 Capitan America-->
+                <article  class="team-card">
+                    <div class="team-card_avatar">
+                        <img src="./assets/img/captainA.png" alt="Capitan America">
+                        <div class="team-card_overlay">
+                            <span>LIDER</span>
+                        </div>
+                    </div>
+                    <div class="team-card_body">
+                        <h3>Capitan America</h3>
+                        <p>Super soldado con un corazon inquebrantable. Lider natural de los Avengers.</p>
+                        <ul class="team-card_skills">
+                        <li>Liderazgo</li>
+                        <li>Combate</li>
+                        <li>Escudo Vibranium</li>
+                        </ul> 
+                    </div>
+                    <div class="team-card_socials">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="X-Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Marvel"><i class="fa-solid fa-mask"></i></a>
+                    </div>
+                </article>
+                <!--Tarjeta 2 Iron Man-->
+                <article  class="team-card">
+                    <div class="team-card_avatar">
+                        <img src="./assets/img/ironman.png" alt="Iron Man">
+                        <div class="team-card_overlay">
+                            <span>GENIO</span>
+                        </div>
+                    </div>
+                    <div class="team-card_body">
+                        <h3>Iron Man</h3>
+                        <p>Multimillonario, genio, filantropo. La mente mas brillante del equipo.</p>
+                        <ul class="team-card_skills">
+                        <li>Tecnologia</li>
+                        <li>Innovacion</li>
+                        <li>Armadura IA</li>
+                        </ul> 
+                    </div>
+                    <div class="team-card_socials">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="X-Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Marvel"><i class="fa-solid fa-mask"></i></a>
+                    </div>
+                </article>
+                <!--Tarjeta 3 Thor-->
+                <article  class="team-card">
+                    <div class="team-card_avatar">
+                        <img src="./assets/img/thor.png" alt="Thor">
+                        <div class="team-card_overlay">
+                            <span>DIOS</span>
+                        </div>
+                    </div>
+                    <div class="team-card_body">
+                        <h3>Thor</h3>
+                        <p>Dios del trueno de Asgard. Portador del legendario martillo Mjolnir.</p>
+                        <ul class="team-card_skills">
+                        <li>Fuerza divina</li>
+                        <li>Rayo</li>
+                        <li>Mjolnir</li>
+                        </ul> 
+                    </div>
+                    <div class="team-card_socials">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="X-Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Marvel"><i class="fa-solid fa-mask"></i></a>
+                    </div>
+                </article>
+                <!--Tarjeta 4 Hulk-->
+                <article  class="team-card">
+                    <div class="team-card_avatar">
+                        <img src="./assets/img/hulk3.png" alt="Hulk">
+                        <div class="team-card_overlay">
+                            <span>FUERZA</span>
+                        </div>
+                    </div>
+                    <div class="team-card_body">
+                        <h3>Hulk</h3>
+                        <p>La fuerza bruta mas grande del planeta. Cuanto mas furioso, mas fuerte.</p>
+                        <ul class="team-card_skills">
+                        <li>Super Fuerza</li>
+                        <li>Resistencia</li>
+                        <li>Regeneracion</li>
+                        </ul> 
+                    </div>
+                    <div class="team-card_socials">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="X-Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Marvel"><i class="fa-solid fa-mask"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section id="nosotros" class="section">
+        <div class="container">
+            <div class="section__header section__header--center">
+                <p>
+                    <i class="fa-solid fa-location-crosshairs"></i> Cuartel General
+                </p>
+                <h2>Torre de los Avengers</h2>
+                <p>Ubicada en Manhattan, es el centro de operaciones del equipo.</p>
+            </div>
+            <div class="about-grid">
+                <!--Bloque formulario-->
+                <div class="about-grid_form">
+                    <form action="#" class="contact-form" method="post">
+                        <div class="form-group">
+                            <label for="username">
+                                <i class="fa-solid fa-user-secret"></i> Nombre de usuario
+                            </label>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                placeholder="Tu nombre clave" 
+                                required
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="agent-email">
+                                <i class="fa-solid fa-envelope"></i> Nombre de usuario
+                            </label>
+                            <input 
+                                type="eamil" 
+                                id="agent-email" 
+                                placeholder="agente@shield.gov" 
+                                required
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="message">
+                                <i class="fa-solid fa-pen"></i> Mensaje
+                            </label>
+                            <textarea 
+                                id="message" 
+                                rows="8" 
+                                placeholder="Cuentanos tu mision..."
+                            ></textarea>
+                        </div>
+                        <button class="btn btn--primary btn--full">
+                            <i class="fa-solid fa-paper-plane"></i> Enviar reporte
+                        </button>
+                    </form>
                 </div>
-
-                <div class="team-grid">
-                    <!--Tarjeta 1 Capitan America-->
-                    <article  class="team-card">
-                        <div class="team-card_avatar">
-                            <img src="./assets/img/captainA.png" alt="Capitan America">
-                            <div class="team-card_overlay">
-                                <span>LIDER</span>
-                            </div>
-                        </div>
-                        <div class="team-card_body">
-                           <h3>Capitan America</h3>
-                           <p>Super soldado con un corazon inquebrantable. Lider natural de los Avengers.</p>
-                           <ul class="team-card_skills">
-                            <li>Liderazgo</li>
-                            <li>Combate</li>
-                            <li>Escudo Vibranium</li>
-                           </ul> 
-                        </div>
-                        <div class="team-card_socials">
-                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" aria-label="X-Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" aria-label="Marvel"><i class="fa-solid fa-mask"></i></a>
-                        </div>
-                    </article>
-                    <!--Tarjeta 2 Iron Man-->
-                    <article  class="team-card">
-                        <div class="team-card_avatar">
-                            <img src="./assets/img/ironman.png" alt="Iron Man">
-                            <div class="team-card_overlay">
-                                <span>GENIO</span>
-                            </div>
-                        </div>
-                        <div class="team-card_body">
-                           <h3>Iron Man</h3>
-                           <p>Multimillonario, genio, filantropo. La mente mas brillante del equipo.</p>
-                           <ul class="team-card_skills">
-                            <li>Tecnologia</li>
-                            <li>Innovacion</li>
-                            <li>Armadura IA</li>
-                           </ul> 
-                        </div>
-                        <div class="team-card_socials">
-                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" aria-label="X-Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" aria-label="Marvel"><i class="fa-solid fa-mask"></i></a>
-                        </div>
-                    </article>
-                    <!--Tarjeta 3 Thor-->
-                    <article  class="team-card">
-                        <div class="team-card_avatar">
-                            <img src="./assets/img/thor.png" alt="Thor">
-                            <div class="team-card_overlay">
-                                <span>DIOS</span>
-                            </div>
-                        </div>
-                        <div class="team-card_body">
-                           <h3>Thor</h3>
-                           <p>Dios del trueno de Asgard. Portador del legendario martillo Mjolnir.</p>
-                           <ul class="team-card_skills">
-                            <li>Fuerza divina</li>
-                            <li>Rayo</li>
-                            <li>Mjolnir</li>
-                           </ul> 
-                        </div>
-                        <div class="team-card_socials">
-                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" aria-label="X-Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" aria-label="Marvel"><i class="fa-solid fa-mask"></i></a>
-                        </div>
-                    </article>
-                    <!--Tarjeta 4 Hulk-->
-                    <article  class="team-card">
-                        <div class="team-card_avatar">
-                            <img src="./assets/img/hulk3.png" alt="Hulk">
-                            <div class="team-card_overlay">
-                                <span>FUERZA</span>
-                            </div>
-                        </div>
-                        <div class="team-card_body">
-                           <h3>Hulk</h3>
-                           <p>La fuerza bruta mas grande del planeta. Cuanto mas furioso, mas fuerte.</p>
-                           <ul class="team-card_skills">
-                            <li>Super Fuerza</li>
-                            <li>Resistencia</li>
-                            <li>Regeneracion</li>
-                           </ul> 
-                        </div>
-                        <div class="team-card_socials">
-                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" aria-label="X-Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" aria-label="Marvel"><i class="fa-solid fa-mask"></i></a>
-                        </div>
-                    </article>
-
-
-
-
-
+                <!--Bloque logo y mapa-->
+                <div class="about-grid_info">
+                    <img 
+                        class="about-logo"
+                        src="./assets/img/logoTexto.png" 
+                        alt="Logo Avengers texto"
+                        >
+                    <iframe 
+                        class="about-map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21737.7129252043!2d-74.00272466905602!3d40.74595593094919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25901b0b6b525%3A0x7c54982bf710f9f0!2sThe%20Baxter%20Building!5e1!3m2!1ses!2sco!4v1776826190452!5m2!1ses!2sco" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Ubicacion Torre los vengadores"
+                    ></iframe>
                 </div>
             </div>
-        </section>
-        <section id="nosotros">SOBRE</section>
-    </main>
+
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <div class="container footer_inner">
+        <p>
+            <i class="fa-solid fa-shield-halved"></i>
+            S.H.I.E.L.D. Portal - Practica HTML Y CSS Puros
+        </p>
+        <p>
+            <i class="fa-regular fa-copyright"></i> 2026 Diego Bonilla
+        </p>
+    </div>
+</footer>
 
 </body>
 </html>
