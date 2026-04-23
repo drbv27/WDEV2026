@@ -1,0 +1,8 @@
+.col,.col-3 {
+    background: #89B4FA;
+    color: #1E1E2E;
+    padding: 16px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid rgba(0,0,0,0.1);
+}
