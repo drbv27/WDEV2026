@@ -1,28 +1,75 @@
-//MINI CALCULADORA INTERACTIVA
+//como crear un string en una variable
+const simple ='Hola'
+const doble = "Mundo"
+const backtick = `Template String`
 
-//Pedir los datos al usuario
-const numero1 = prompt("Ingresa el primer numero:")
-const numero2 = prompt("Ingresa el segundo numero:")
+const palabra = "Javascript"
+const palabra2 = " Diego Bonilla "
+const userName = "Peter"
+const lastName = "Gabriel"
+ //metodos de string
+ //length
 
-//Ojo: prompt me devuelve todo en strings, hay que convertir a numero
-const n1 = Number(numero1)
-const n2 = Number(numero2)
+ console.log(palabra.length)
+ console.log(palabra2.length)
 
-//hagamois la 4 operaciones basicas
+ //acceder al primer caracter
+ const lastChar = palabra[palabra.length - 1]
+ console.log(lastChar)
 
-const suma = n1+n2
-const resta = n1-n2
-const multiplicacion = n1*n2
-const division = n1/n2
+ console.log(palabra.charAt(0))
 
-//mostrar el resultado de 2 maneras (no es necesario hacerlo de las 2 maneras)
-alert(`Resultados: ${n1} + ${n2} = ${suma} 
-    ${n1} - ${n2} = ${resta}
-    ${n1} * ${n2} = ${multiplicacion}
-    ${n1} / ${n2} = ${division}
-    `)
+ console.log(`Bienvenido: ${userName.charAt(0)}${lastName.charAt(0)}`)
+
+ //mini ejercicio
+
+ const miNombre = "coloquen su nombre"
+ // Imprimir:
+// 1. La longitud del miNombre
+// 2. El primer caracter
+// 3. El ultimo caracter
+// 4. La letra en la posicion 6
 
 
-console.log("Primer numero:", n1, "typeof:", typeof n1);
-console.log("Segundo numero:", n2, "typeof:", typeof n2);
-console.table({ suma, resta, multiplicacion, division });
+//METODOS DE BUSQUEDA Y TRANSFORMACION
+
+//transformar el texto
+//transformar a mayusculas
+console.log(palabra2)
+console.log(palabra2.toUpperCase())//convierte todo a mayusq
+console.log(palabra2.toLowerCase())//convierte todo a minusq
+console.log(palabra2.trimStart())
+console.log(palabra2.trimEnd())
+console.log(palabra2.trim())
+
+//los metodos se pueden encadenar
+const input = "   DIEGO bonilla    "
+const limpio = input.trim().toLowerCase()
+
+console.log(input)
+console.log(limpio)
+
+//busqueda
+const frase = "Aprendiendo JavaScript en 2026";
+
+//includes: devuelve true/false si encuentra el subtexto
+console.log(frase.includes("Python"))
+console.log(frase.includes("2026"))
+
+//indexOf devuelve la posicion o -1 sino existe
+console.log(frase.indexOf("Python"))
+console.log(frase.indexOf("2026"))
+
+//starsWith y EndsWith
+
+console.log(frase.startsWith("Aprendiendo J"))
+console.log(frase.endsWith("en 2026"))
+
+
+//ejemplo util
+
+const email = "drbv27@gmail.com"
+
+if(email.includes("@") && email.includes(".")){
+    console.log("Parece un email valido")
+}
