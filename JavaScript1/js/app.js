@@ -1,146 +1,114 @@
-//Condicionales
-//0. If -> si
-//sintaxis
-/*
+//Devolver valores   - return
 
-if(condicion){
-    //codigo si condicion se cumple
+//Una funcion que IMPRIME en consola pero no devuelve nada
+function sumarYImprimir(a,b){
+    console.log(a+b)
 }
 
-*/
-//ejemplo
-const dinero = 700000
-if(dinero>=1500000){
-    console.log("me compro el ferrari")
+sumarYImprimir(4,5)
+
+const resultado1 = sumarYImprimir(3,7)
+console.log(resultado1+1)
+
+//Funcion que DEVUELVE el resultado, NO IMPRIME
+
+function sumar(a,b){
+    return (a+b)
 }
 
-//1. if - else basico
+const resultado = sumar(9,1)
+console.log(resultado+1)
 
-/*
+//el return termina la funcion
 
-sintaxis:
-
-if(condicion){
-    //codigo si condicion se cumple
-}else{
-    //codigo si no se cumple
-}
-*/
-const edad = 15
-if (edad >= 18) {
-    console.log("Eres mayor de edad, puedes votar.")
-} else {
-    console.log("Eres menor de edad,No puedes votar.")
-}
-
-//2.valores Truthy/Falsy
-/* const nombre = prompt("como te llamas?") */
-
-
-/* if(nombre){
-    console.log(`Hola ${nombre}`)
-}else{
-    console.log(`No escribiste nada`)
-} */
-
-//3. if else if - multiples condiciones
-const nota = 75
-
-if (nota>=90) {
-    console.log("Es una nota Excelente!!!")
-} else if(nota>=70) {
-    console.log("Tu nota es buena")
-}else if(nota>=60){
-    console.log("Tu nota es aceptable")
-}else{
-    console.log("Reprobaste")
-}
-
-//combinando condicionales con strings
-
-const usuario = "vendedor"
-
-if (usuario === "admin") {
-    console.log("Acceso total.");
-} else if (usuario === "editor") {
-    console.log("Acceso a edicion.");
-} else if (usuario === "lector") {
-    console.log("Acceso de solo lectura.");
-} else {
-    console.log("Tipo de usuario desconocido.");
-}
-
-//4.Operador Ternario
-//sintaxis: condicion ? que hace si es true : que hace si es false
-
-const edad2 = 11
-const tipo = edad2 >=18 ? "Adulto" : "menor"
-/*equivalente co if else
-let tipo
-if(edad >= 18){
-    tipo = "Adulto"
-}else{
-    tipo="menor"
+function clasificarNumero(numero){
+    if(numero > 0){
+        return "positivo"
     }
-    */
-console.log(tipo)
-
-//casos donde brilla el operador ternario
-//saludo dinamico
-const hora = 9
-const saludo = hora<12 ? "Buenos dias" : "Buenas tardes"
-
-console.log(saludo)
-
-//pluralizar
-const n = 9
-const mensaje = `Tienes ${n} ${n===1 ? "Mensaje":"Mensajes"}`
-console.log(mensaje)
-
-//valores por defecto
-const nombreUsuario = ""
-const mostrar = nombreUsuario ? nombreUsuario : "Anonimo"
-console.log(mostrar)
-
-//Dentro de un template literal
-const edad3 = 7
-console.log(`Eres ${edad3 >= 18 ? "mayor" : "menor"} de edad`)
-
-//cuando no usar un ternario
-//en anidaciones, se puede en teoria pero es una pesima 
-//practica
-
-//mal:
-const cat = edad < 13 ? "nino" : edad < 18 ?"adolescente":"adulto"
-
-//5.switch para muchos casos de decision
-//cuando usarlo cuando haya una variable con muchos
-//casos especificos
-
-const dia = 7
-
-switch (dia) {
-    case 1:
-        console.log("Lunes")
-        break;
-    case 2:
-        console.log("Martes")
-        break;
-    case 3:
-        console.log("Miercoles")
-        break;
-    case 4:
-        console.log("Jueves")
-        break;
-    case 5:
-        console.log("Viernes")
-        break;
-    case 6:
-    case 7:
-        console.log("Fin de semana")
-        break;
-
-    default:
-        console.log("Dia no valido")
-        break;
+    if(numero < 0){
+        return "negativo"
+    }
+    return "cero"
 }
+
+const numero1 = clasificarNumero(27)
+/* const numero2 = clasificarNumero(-50)
+const numero3 = clasificarNumero(0) */
+
+console.log(numero1)
+/* console.log(numero2)
+console.log(numero3) */
+
+//combinar funciones
+
+function celciusAFahrenheit(c){
+    return (c*9/5)+32
+}
+
+function descripcionTemperatura(c){
+    const f = celciusAFahrenheit(c)
+    
+    if(f < 32) return "Frio"
+    if(f < 80) return "Templado"
+
+    return "Caluroso"
+}
+
+console.log(descripcionTemperatura(20))
+console.log(descripcionTemperatura(-5))
+console.log(descripcionTemperatura(35))
+
+//SCOPE global y local
+
+//variables globales
+
+const nombreApp = "My App" //global
+
+function mostrar(){
+    console.log(nombreApp)
+}
+
+mostrar()
+
+//variables locales
+ function calcular(){
+    const resultadito = 42
+    console.log(resultadito)
+ }
+
+ calcular()
+ //console.log(resultadito)
+
+ //porque es bueno
+ function funcionA(){
+    const dato = "Secreto A"
+ }
+ function funcionB(){
+    const dato = "Secreto B"
+ }
+
+ //LOS PARAMETROS TAMBIEN SON DE SCOPE LOCAL
+ function multiplicar (x,y){
+    return x*y
+ }
+
+ console.log(multiplicar(3,7))
+ /* console.log(x) */
+
+ //acceso jerarquico
+
+ const global = "soy global"
+
+ function externa(){
+    const local = "soy externa"
+
+    function interna(){
+        console.log(global)
+        console.log(local)
+    }
+
+    interna()
+ }
+
+ externa()
+ 
