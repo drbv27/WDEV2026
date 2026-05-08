@@ -1,76 +1,54 @@
-//expresion de funcion o function expression
+//METODOS AVANZADOS EN LOS ARRAYS
 
-//una funcion declarada es:
-function saludarD(nombre){
-    return `Hola ${nombre}`
+//DEMOSTRACION
+//crear un nuevo array con los numeros al doble
+//forma vieja con for (muy ineficiente y complicada)
+const numeros = [1,2,3,4,5]
+const dobles = []
+for(let i =0; i< numeros.length; i++){
+    dobles.push(numeros[i]*2)
 }
 
-//hagamos lo mismo con la funcion expresada
+console.log(dobles)
 
-const saludarE = function(nombre){
-    return `Hola ${nombre}` 
+//forma moderna con map
+//sintaxis de .map()
+//const nuevoArray = arrayOriginal.map(callback)
+//.map(()=>{normalmente no va las llaves})
+/* const dobles2 = numeros.map( (numero)=>{return numero*2} ) */
+const dobles2 = numeros.map( numero => numero*2 )
+
+console.log(dobles2)
+
+//otro ejemplo convertir a mayusculas los nombres en un array
+const nombres = ["ana","luis","marta"]
+const mayusculas = nombres.map( nombre => nombre.toUpperCase() )
+console.log(mayusculas)
+
+//otro ejemplo calculando impuestos
+const precios = [100,250,80,500]
+const conIva = precios.map( precio => precio*1.13 )
+console.log(precios)
+console.log(conIva)
+
+//intro objetos literals
+//un objeto es un molde de parejas llave:valor
+//que me sirven para asociar informacion de una misma cosa
+const persona1 = {
+    nombre:"Diego",
+    edad:48,
+    isMarried:true
 }
 
-//Las 2 se invocan igual
-console.log(saludarD("Diego"))
-console.log(saludarE("Diego"))
+//como accedo a los valores de un objeto
+//la principal forma es con sitaxis de punto
+//similar a un metodo
 
+console.log(persona1.nombre)
+console.log(persona1.edad)
 
-//DIFERENCIAS ENTRE function declaration y function expression
-//1. Hoisting
-
-//la funcion declarada se hoistea
-hablar()
-
-function hablar(){
-    console.log("Hablando...")
-}
-
-//la funcion expresada NO se hoistea
-/* hablar2() */
-const hablar2 = function(){
-    console.log("Hablando 2...")
-}
-
-//ARROW FUNCTIONS
-//SINTAXIS BASICA
-
-const saluditoE = function(nombre){
-    return `Hola ${nombre}`
-}
-
-const saludito = (nombre) => {
-    return `Hola ${nombre}`
-}
-//reglas de simplificacion
-//1. si el cuerpo de la funcion es una sola expresion
-//podemos quitar el return y las llaves....
-//eso lo llamamos return implicito
-const saludito2 = (nombre) => `Hola ${nombre}`
-//2 si la funcion solo tiene 1 parametro puedo eliminar los
-//parenetesis
-const saludito3 = nombre => `Hola ${nombre}`
-
-//ejemplos
-
-const esEmail = function(email){
-    return email.includes("@") && email.includes('.')
-}
-
-const esEmailValido = email => email.includes("@") && email.includes('.')
-
-// Funcion para capitalizar
-const capitalizar = (palabra) => palabra[0].toUpperCase() + palabra.slice(1).toLowerCase();
-
-// Funcion para clasificar edad
-const clasificarEdad = (edad) => {
-    if (edad < 13) return "nino";
-    if (edad < 18) return "adolescente";
-    if (edad < 60) return "adulto";
-    return "adulto mayor";
-};
-
-//pruebas
-console.log(esEmailValido("diego@email.com"))
-console.log(capitalizar("DIEGO"))
-console.log(clasificarEdad(25))
+//ejerccio
+//van a tener un array con diferentes edades
+//van a hacerle un map
+//y a cada elemento le van a reducir la edad en 5
+//luego van a mostrar el nuevo array
