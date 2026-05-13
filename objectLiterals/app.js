@@ -83,3 +83,61 @@ const apiResponse = {
 // su ciudad y guarden el resto de la informacion en una variable llamada
 //metadata
 
+//MUTABILIDAD
+
+const hardware = { cpu:"Ryzen 9" }
+console.log(hardware)
+//adicionar con sintaxis de punto
+hardware.ram = "32GB"
+console.log(hardware)
+//tambien existe la sintaxis de corchete
+//para nombres con espacios o variables
+const propiedadDinamica = "Almacenamiento"
+hardware[propiedadDinamica] = "1TB SSD"
+console.log(hardware)
+
+//puedo modificar con la misma sintaxis
+hardware.ram = "64GB"
+console.log(hardware)
+
+//BORRADO
+const config = { tema:"Oscuro",fuente:"Fira Code", debug:true}
+
+console.log(config)
+delete config.debug
+console.log(config)
+
+//INPECCIONAR OBJETOS
+//Object.keys(objeto)  y Object.values(objeto)
+
+const stack = { frontend:"React", backend:"Node", db:"MongoDB" }
+
+const llaves = Object.keys(stack)
+console.log(llaves)
+console.log(llaves.length)
+
+const valores = Object.values(stack)
+console.log(valores)
+
+const precios = {monitor:300, teclado:50, mouse:25 }
+
+const valores2 = Object.values(precios)
+console.log(valores2)
+
+const total = valores2.reduce((acc,valor)=> acc+valor,0)
+console.log(total)
+
+//Bonus track
+//Object.entries()
+
+const settings = { port:3000, host:"localhost" }
+
+console.log(Object.entries(settings))
+
+
+//Mision 1
+//crear un objeto que se llame vehiculo
+//Mision2: agregen las propiedades marca y modelo
+//Mision 3: usen object.keys para verificar que el objeto tenga exactamente 2 props
+//4. Agreguen una propiedad "temporal" y luego borrenla con delete
+//5.Impriman en consola solo los valores del objeto usando Object.values()
