@@ -79,8 +79,60 @@ const spunchify = {
         this.estado = "detenido"
     },
 
+    //5to agregar cancion a la cola de reproduccion
+    addToStack(id){
+        const cancion = this.biblioteca.find( cancionB => cancionB.id === id  )
+        if(!cancion){
+            console.log(`No existe la cancion ${id} "no puedo reproducirla"`)
+            return
+        }
+        this.cola.push(id)
+        console.log(`Adicionado a la cola: ${cancion.titulo} (En cola: ${this.cola.length})`)
+    },
 
+    ffwd(){
+        //1. Guardar la cancion que se termino en el historial (si existe)
+        if(this.cancionActual){
+            this.historial.push(this.cancionActual.id)
+        }
+        //2.Si hay cola de canciones sacar la 1ra y reproducirla
+        if(this.cola.length >0 ){
+            const nextId = this.cola.shift()
+            this.play(nextId)
+            return
+        }
+        //3. si modo esta en modo random
+        //lo implementamos cuando tengamos el radom
 
+        //4. Nada por reproducir
+        console.log("Fin de la cola")
+        this.stop()
+    },
+
+    rrwd(){
+        if(this.historial.length ===0){
+            console.log("No hay cancion anterior")
+            return
+        }
+        //sacar la ultima cancion del historial
+        const idAnterior = this.historial.pop()
+        this.play(idAnterior)
+    },
+
+        tick(){
+        //si no esta sonando que no haga nada
+        if(this.estado !== "reproduciendo") return
+        if(!this.cancionActual) return
+
+        //avanzar 1 segundo
+        this.tiempoTrascurrido++
+
+        //si llegamos al final de la cancion pase a la siguiente
+        if(this.tiempoTrascurrido >= this.cancionActual.duracion){
+            console.log(`-- Termino "${this.cancionActual.titulo}" `)
+            this.siguiente()//este metodo aun no existe
+        }
+    },
     mostrarEstado(){
         if(!this.cancionActual){
             console.log("[Reproductor detenido - sin cancion]")
@@ -98,21 +150,31 @@ const spunchify = {
 
 }
 
-
+/* spunchify.tickInterval = setInterval(()=>{
+    spunchify.tick()
+},1000) */
 
 
 
 
 //COMANDOS DE PRUEBA
 
-spunchify.play(31)
-spunchify.pause()
+spunchify.play(17)
+spunchify.addToStack(33)
+spunchify.addToStack(105)
+spunchify.addToStack(81)
+spunchify.ffwd()
+spunchify.ffwd()
+spunchify.rrwd()
+spunchify.ffwd()
+
+/* spunchify.pause()
 spunchify.pause()
 spunchify.resume()
 spunchify.stop()
-spunchify.pause()
+spunchify.pause() */
 
 
 
-//spunchify.mostrarEstado()
+/* spunchify.mostrarEstado() */
 
