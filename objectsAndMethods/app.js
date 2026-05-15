@@ -119,6 +119,38 @@ const spunchify = {
         this.play(idAnterior)
     },
 
+    seeStack(){
+        if(this.cola.length === 0){
+            console.log("cola vacia")
+            return
+        }
+        console.log("Cola----------------:")
+        /* this.cola.forEach( (id,i)=>{
+            console.log(`${i+1} ${id}`)
+        } ) */
+        this.cola.forEach( (id,i)=>{
+            const c = this.biblioteca.find(s => s.id ===id)
+            console.log(`${i+1}. ${c.titulo}- ${c.banda}`)
+        } )
+        console.log("Fin cola---------------")
+    },
+
+    seeHistorial(){
+        if(this.historial.length === 0){
+            console.log("historial vacio")
+            return
+        }
+        console.log("Historial****************:")
+        /* this.cola.forEach( (id,i)=>{
+            console.log(`${i+1} ${id}`)
+        } ) */
+        this.historial.forEach( (id,i)=>{
+            const c = this.biblioteca.find(s => s.id ===id)
+            console.log(`${i+1}. ${c.titulo}- ${c.banda}`)
+        } )
+        console.log("Fin historial**************")
+    },
+
         tick(){
         //si no esta sonando que no haga nada
         if(this.estado !== "reproduciendo") return
@@ -159,14 +191,23 @@ const spunchify = {
 
 //COMANDOS DE PRUEBA
 
-spunchify.play(17)
-spunchify.addToStack(33)
-spunchify.addToStack(105)
-spunchify.addToStack(81)
+spunchify.play(21)
+spunchify.addToStack(47)
+spunchify.seeStack()
+spunchify.addToStack(93)
+spunchify.seeStack()
+spunchify.addToStack(68)
+spunchify.seeStack()
 spunchify.ffwd()
+spunchify.seeHistorial()
+spunchify.seeStack()
 spunchify.ffwd()
+spunchify.seeHistorial()
+spunchify.seeStack()
 spunchify.rrwd()
-spunchify.ffwd()
+spunchify.seeHistorial()
+spunchify.seeStack()
+//spunchify.ffwd()
 
 /* spunchify.pause()
 spunchify.pause()
