@@ -3,6 +3,17 @@
 //de una misma entidad
 //los objetos literale son conjuntos de parejas key:value (llave:valor)
 
+
+const elUsuario = {
+    nombre:"Diego",
+    apellido:"Bonilla",
+    edad:48,
+    isMarried:true
+}
+
+console.log(elUsuario.nombre)
+console.log(elUsuario.apellido)
+
 const miCarro = {
     color:'gris',
     marca:"Suzuki",
@@ -50,6 +61,11 @@ console.log(`Laptop: ${brand} model: ${model} con CPU: ${cpu}`) */
 //que hacer en el destructuring si la variable ya existe
 const year = 2026
 
+const { nombre,apellido,edad,isMarried } = elUsuario
+
+console.log(nombre)
+console.log(apellido)
+
 const { brand,model,year:anio } = laptop
 
 console.log(brand)
@@ -57,7 +73,8 @@ console.log(model)
 console.log(anio)
 
 //valores por defecto y anidacion
-const {specs:{ram},os="win11"} = laptop
+const { specs:{ram},os="win11" } = laptop
+/* console.log(specs) */
 console.log(ram)
 console.log(os)
 
@@ -110,7 +127,11 @@ console.log(config)
 //INPECCIONAR OBJETOS
 //Object.keys(objeto)  y Object.values(objeto)
 
-const stack = { frontend:"React", backend:"Node", db:"MongoDB" }
+const stack = { 
+    frontend:"React", 
+    backend:"Node", 
+    db:"MongoDB" 
+}
 
 const llaves = Object.keys(stack)
 console.log(llaves)
@@ -130,7 +151,10 @@ console.log(total)
 //Bonus track
 //Object.entries()
 
-const settings = { port:3000, host:"localhost" }
+const settings = { 
+        port:3000, 
+        host:"localhost" 
+    }
 
 console.log(Object.entries(settings))
 
