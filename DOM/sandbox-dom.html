@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css">
+    <title>Sandbox DOM - Clase 8</title>
+  </head>
+  <body>
+    <h1 id="titulo-principal">Sandbox DOM</h1>
+    <p class="subtitulo">Clase 8 — Seleccion y manipulacion del DOM</p>
+
+    <div class="info">
+      <strong>Abre la consola con <code>F12</code></strong> y prueba los selectores
+      del bloque 1. La mega-practica del bloque 2 se construye en <code>app.js</code>.
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ZONA DE PRACTICA DEL BLOQUE 1 - Selectores                  -->
+    <!-- ============================================================ -->
+    <section class="zona-bloque-1">
+      <h2>Zona de practica - Bloque 1</h2>
+
+      <p class="texto-demo">
+        Esta zona tiene elementos con <strong>id</strong>, <strong>clases</strong>
+        y <strong>atributos</strong> para que practiquen los selectores en consola.
+      </p>
+
+      <ul class="lista-canciones" id="lista-demo">
+        <li class="item">Bohemian Rhapsody</li>
+        <li class="item activo">Sweet Child O' Mine</li>
+        <li class="item">November Rain</li>
+        <li class="item">Livin' on a Prayer</li>
+      </ul>
+
+      <div class="grupo-inputs">
+        <input type="text" id="mi-input" placeholder="Input de texto" />
+        <input type="email" placeholder="Email" />
+        <input type="number" placeholder="Edad" />
+        <button class="btn-demo" data-accion="saludar">Saludar</button>
+        <button class="btn-demo" data-accion="despedir">Despedir</button>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MEGA PRACTICA - Bloque 2                                     -->
+    <!-- ============================================================ -->
+    <section class="mega-practica">
+      <h2>Mega Practica: Catalogo de Canciones</h2>
+
+      <input
+        type="text"
+        id="buscador"
+        placeholder="Buscar cancion o banda..."
+      />
+
+      <div class="filtros">
+        <button data-genero="todos" class="activo">Todos</button>
+        <button data-genero="hard rock">Hard Rock</button>
+        <button data-genero="power ballad">Baladas</button>
+        <button data-genero="glam metal">Glam Metal</button>
+        <button data-genero="heavy metal">Heavy Metal</button>
+        <button data-genero="rock">Rock</button>
+      </div>
+
+      <p id="contador">0 canciones</p>
+
+      <div id="grid-canciones">
+        <!-- Aqui se inyectan las tarjetas desde app.js -->
+      </div>
+    </section>
+
+    <!-- 1. Dataset primero -->
+    <script src="canciones-rock.js"></script>
+    <!-- 2. Codigo de la clase despues -->
+    <script src="app-clase-08.js"></script>
+  </body>
+</html>

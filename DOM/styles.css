@@ -1,0 +1,215 @@
+      :root {
+        --bg: #1e1e2e;
+        --bg-2: #181825;
+        --bg-3: #313244;
+        --text: #cdd6f4;
+        --muted: #a6adc8;
+        --accent: #f9e2af;
+        --accent-2: #89b4fa;
+        --accent-3: #a6e3a1;
+        --accent-4: #f38ba8;
+        --accent-5: #cba6f7;
+        --border: #45475a;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        padding: 24px;
+        max-width: 1100px;
+        margin: 0 auto;
+        line-height: 1.5;
+      }
+
+      h1#titulo-principal {
+        color: var(--accent-2);
+        margin-bottom: 8px;
+      }
+
+      .subtitulo {
+        color: var(--muted);
+        margin-bottom: 24px;
+      }
+
+      .info {
+        background: var(--bg-2);
+        border-left: 4px solid var(--accent-2);
+        padding: 12px 16px;
+        border-radius: 6px;
+        margin-bottom: 24px;
+        font-size: 0.95rem;
+      }
+
+      .info code {
+        background: var(--bg-3);
+        color: var(--accent);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Fira Code", Consolas, monospace;
+      }
+
+      /* Zona de practica del bloque 1 */
+      .zona-bloque-1 {
+        background: var(--bg-2);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 28px;
+      }
+
+      .zona-bloque-1 h2 {
+        color: var(--accent-3);
+        margin-bottom: 12px;
+        font-size: 1.2rem;
+      }
+
+      .lista-canciones {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin: 12px 0;
+      }
+
+      .lista-canciones li {
+        background: var(--bg-3);
+        padding: 8px 14px;
+        border-radius: 6px;
+      }
+
+      .lista-canciones li.activo {
+        background: var(--accent-2);
+        color: var(--bg);
+        font-weight: 600;
+      }
+
+      .grupo-inputs {
+        display: flex;
+        gap: 10px;
+        margin: 12px 0;
+        flex-wrap: wrap;
+      }
+
+      .grupo-inputs input {
+        background: var(--bg);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 8px 12px;
+        font-size: 0.95rem;
+      }
+
+      button {
+        background: var(--bg-3);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 8px 16px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: background 0.15s ease;
+      }
+
+      button:hover { background: var(--border); }
+
+      /* Mega practica */
+      .mega-practica {
+        margin-top: 32px;
+      }
+
+      .mega-practica h2 {
+        color: var(--accent);
+        margin-bottom: 16px;
+      }
+
+      #buscador {
+        width: 100%;
+        background: var(--bg-2);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-size: 1rem;
+        margin-bottom: 12px;
+      }
+
+      .filtros {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+      }
+
+      .filtros button.activo {
+        background: var(--accent-3);
+        color: var(--bg);
+        border-color: var(--accent-3);
+        font-weight: 700;
+      }
+
+      #contador {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+      }
+
+      #grid-canciones {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 14px;
+      }
+
+      .tarjeta {
+        background: var(--bg-2);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 14px 16px;
+        transition: transform 0.15s ease, border-color 0.15s ease;
+      }
+
+      .tarjeta:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent-2);
+      }
+
+      .tarjeta h3 {
+        font-size: 1rem;
+        color: var(--accent-2);
+        margin-bottom: 4px;
+      }
+
+      .tarjeta .banda {
+        color: var(--text);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .tarjeta .anio {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+      }
+
+      .tarjeta .genero {
+        display: inline-block;
+        background: var(--bg-3);
+        color: var(--accent);
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 0.75rem;
+        text-transform: capitalize;
+      }
+
+      .vacio {
+        color: var(--muted);
+        text-align: center;
+        padding: 30px;
+        grid-column: 1 / -1;
+        font-style: italic;
+      }
+
+      .oculto { display: none; }
