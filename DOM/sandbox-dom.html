@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css">
     <title>Sandbox DOM - Clase 8</title>
+
   </head>
   <body>
     <h1 id="titulo-principal">Sandbox DOM</h1>
@@ -33,13 +34,13 @@
         <li class="item">Livin' on a Prayer</li>
       </ul>
 
-      <div class="grupo-inputs">
+<!--       <div class="grupo-inputs">
         <input type="text" id="mi-input" placeholder="Input de texto" />
         <input type="email" placeholder="Email" />
         <input type="number" placeholder="Edad" />
         <button class="btn-demo" data-accion="saludar">Saludar</button>
         <button class="btn-demo" data-accion="despedir">Despedir</button>
-      </div>
+      </div> -->
     </section>
 
     <!-- ============================================================ -->
@@ -47,6 +48,24 @@
     <!-- ============================================================ -->
     <section class="mega-practica">
       <h2>Mega Practica: Catalogo de Canciones</h2>
+
+      <!-- FORMULARIO DE AGREGAR (clase 8B - feature 1) -->
+      <section class="form-agregar">
+        <h2>Agregar nueva cancion</h2>
+        <form id="form-cancion">
+          <input type="text"   id="input-titulo" placeholder="Titulo" />
+          <input type="text"   id="input-banda"  placeholder="Banda"  />
+          <input type="number" id="input-anio"   placeholder="Anio" min="1950" max="2030" />
+          <select id="input-genero">
+            <option value="rock">Rock</option>
+            <option value="hard rock">Hard Rock</option>
+            <option value="power ballad">Power Ballad</option>
+            <option value="glam metal">Glam Metal</option>
+            <option value="heavy metal">Heavy Metal</option>
+          </select>
+          <button type="button" id="btn-agregar">Agregar</button>
+        </form>
+      </section>
 
       <input
         type="text"
@@ -66,9 +85,19 @@
       <p id="contador">0 canciones</p>
 
       <div id="grid-canciones">
-        <!-- Aqui se inyectan las tarjetas desde app.js -->
+        <!-- Aqui se inyectan las tarjetas desde app-clase-08.js -->
       </div>
     </section>
+
+    <!-- FOOTER FLOTANTE (clase 8B - feature 3) -->
+    <button id="btn-footer" class="btn-flotante">i Info</button>
+
+    <footer id="footer" class="oculto">
+      <h3>Acerca del catalogo</h3>
+      <p>Catalogo de clasicos del rock — clase 8 del bootcamp.</p>
+      <p>Construido con <strong>JavaScript puro y DOM</strong>. Sin librerias.</p>
+      <p id="footer-stats">cargando estadisticas...</p>
+    </footer>
 
     <!-- 1. Dataset primero -->
     <script src="canciones-rock.js"></script>

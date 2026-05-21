@@ -169,6 +169,43 @@
         border-radius: 10px;
         padding: 14px 16px;
         transition: transform 0.15s ease, border-color 0.15s ease;
+        position: relative;
+      }
+
+      .tarjeta .btn-eliminar {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        transition: all 0.15s ease;
+      }
+
+      .tarjeta .btn-eliminar:hover {
+        background: var(--accent-4);
+        color: var(--bg);
+        border-color: var(--accent-4);
+      }
+
+      .tarjeta.recien-agregada {
+        animation: aparecer 0.4s ease;
+      }
+
+      @keyframes aparecer {
+        from { opacity: 0; transform: translateY(-10px); }
+        to   { opacity: 1; transform: translateY(0); }
       }
 
       .tarjeta:hover {
@@ -213,3 +250,109 @@
       }
 
       .oculto { display: none; }
+
+      /* Formulario de agregar cancion */
+      .form-agregar {
+        background: var(--bg-2);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 18px 20px;
+        margin-bottom: 24px;
+      }
+
+      .form-agregar h2 {
+        color: var(--accent-3);
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+      }
+
+      .form-agregar form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+        align-items: stretch;
+      }
+
+      .form-agregar input,
+      .form-agregar select {
+        background: var(--bg);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 8px 12px;
+        font-size: 0.95rem;
+        font-family: inherit;
+      }
+
+      .form-agregar input:focus,
+      .form-agregar select:focus {
+        outline: none;
+        border-color: var(--accent-3);
+      }
+
+      .form-agregar #btn-agregar {
+        background: var(--accent-3);
+        color: var(--bg);
+        border: none;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .form-agregar #btn-agregar:hover {
+        background: var(--accent);
+      }
+
+      /* Footer flotante + boton */
+      .btn-flotante {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 30px;
+        padding: 10px 22px;
+        background: var(--accent-2);
+        color: var(--bg);
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+      }
+
+      .btn-flotante:hover {
+        background: var(--accent);
+      }
+
+      #footer {
+        position: fixed;
+        bottom: 72px;
+        right: 20px;
+        background: var(--bg-2);
+        padding: 16px 20px;
+        border-radius: 10px;
+        border: 1px solid var(--accent-2);
+        max-width: 320px;
+        z-index: 9;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      }
+
+      #footer h3 {
+        color: var(--accent-2);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+
+      #footer p {
+        font-size: 0.88rem;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+
+      #footer p strong { color: var(--accent); }
+
+      #footer #footer-stats {
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 1px solid var(--border);
+        color: var(--accent-3);
+        font-weight: 600;
+      }
