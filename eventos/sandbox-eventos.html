@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandbox Eventos - Clase 9</title>
+    <link rel="stylesheet" href="sandbox-eventos.css" />
+  </head>
+  <body>
+    <h1>Sandbox de Eventos</h1>
+    <p class="subtitulo">Clase 9 — vamos a construir el JS en vivo, zona por zona.</p>
+
+    <div class="info-top">
+      <strong>Como funciona:</strong> esta pagina tiene HTML y CSS listos. El archivo
+      <code>sandbox-eventos.js</code> esta <strong>vacio</strong>. Lo vamos a ir escribiendo en clase
+      siguiendo la guia, una zona a la vez. Aborí <code>sandbox-eventos.js</code> en VSCode
+      al lado del navegador.
+    </div>
+
+    <div class="indice">
+      <h3>Indice de zonas</h3>
+      <ol>
+        <li><a href="#z1">target vs currentTarget</a></li>
+        <li><a href="#z2">Mouse basico</a></li>
+        <li><a href="#z3">Hover: enter/leave vs over/out</a></li>
+        <li><a href="#z4">Coordenadas del mouse</a></li>
+        <li><a href="#z5">Teclado</a></li>
+        <li><a href="#z6">Focus / Blur</a></li>
+        <li><a href="#z7">Formulario</a></li>
+        <li><a href="#z8">Scroll</a></li>
+        <li><a href="#z9">Resize</a></li>
+        <li><a href="#z10">Bubbling</a></li>
+        <li><a href="#z11">Delegation</a></li>
+      </ol>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- ZONA 1: target vs currentTarget             -->
+    <!-- ============================================ -->
+    <section class="zona" id="z1">
+      <h2><span class="num">1</span> target vs currentTarget</h2>
+      <p class="descripcion">
+        Una caja con elementos anidados. En clase vamos a poner un listener en el div
+        y observar como cambia <code>event.target</code> segun donde se haga click.
+      </p>
+
+      <div id="caja-anidada">
+        Soy el div con id="caja-anidada"
+        <p>Soy un parrafo dentro del div. Hace click <strong>en esta palabra</strong>.</p>
+      </div>
+
+      <div class="log" id="log-z1"></div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 2: mouse basico                        -->
+    <!-- ============================================ -->
+    <section class="zona" id="z2">
+      <h2><span class="num">2</span> Eventos de mouse — click, dblclick, contextmenu</h2>
+      <p class="descripcion">
+        Cuatro botones listos para conectar listeners de los eventos de mouse mas comunes.
+      </p>
+
+      <div class="fila">
+        <button class="btn-grande" id="btn-click">Click simple</button>
+        <button class="btn-grande" id="btn-dblclick">Doble click</button>
+        <button class="btn-grande" id="btn-derecho">Click derecho</button>
+        <button class="btn-grande" id="btn-down-up">mousedown / mouseup</button>
+      </div>
+
+      <div class="log" id="log-z2"></div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 3: hover (enter/leave vs over/out)     -->
+    <!-- ============================================ -->
+    <section class="zona" id="z3">
+      <h2><span class="num">3</span> Hover — enter/leave vs over/out</h2>
+      <p class="descripcion">
+        Dos cajas identicas con un "hijo" dentro. Vamos a conectarle <code>mouseenter/leave</code>
+        a la izquierda y <code>mouseover/out</code> a la derecha, para ver la diferencia con el hijo.
+      </p>
+
+      <div class="fila">
+        <div class="caja-hover" id="caja-enter-leave">
+          mouseenter / mouseleave
+          <div class="hijo">Soy un hijo. Pasa el mouse aqui adentro.</div>
+        </div>
+        <div class="caja-hover" id="caja-over-out">
+          mouseover / mouseout
+          <div class="hijo">Soy un hijo. Pasa el mouse aqui adentro.</div>
+        </div>
+      </div>
+
+      <div class="log" id="log-z3"></div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 4: coordenadas                         -->
+    <!-- ============================================ -->
+    <section class="zona" id="z4">
+      <h2><span class="num">4</span> Coordenadas del mouse</h2>
+      <p class="descripcion">
+        Un recuadro listo. Vamos a conectar <code>mousemove</code> para mostrar las coordenadas
+        en vivo y mover un puntito siguiendo el cursor.
+      </p>
+
+      <div id="zona-coords">
+        <span id="zona-coords-info">Pasa el mouse aqui adentro (despues de conectar el JS)</span>
+        <div id="coords-dot"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 5: teclado                             -->
+    <!-- ============================================ -->
+    <section class="zona" id="z5">
+      <h2><span class="num">5</span> Eventos de teclado</h2>
+      <p class="descripcion">
+        Un input + un panel grande para mostrar la tecla y los modificadores. Vamos a conectar
+        <code>keydown</code> y a leer <code>event.key</code>, <code>event.code</code> y los
+        modificadores. Despues, un atajo global con la tecla <kbd>/</kbd>.
+      </p>
+
+      <input type="text" id="input-teclado" placeholder="Click aqui y presiona teclas..." style="width:100%;margin-bottom:10px;" />
+
+      <div class="key-display">
+        <div class="big-key" id="big-key">esperando...</div>
+        <div class="key-meta" id="key-meta">key: -  /  code: -</div>
+        <div class="key-mods">
+          <span class="key-mod" data-mod="ctrl">Ctrl</span>
+          <span class="key-mod" data-mod="shift">Shift</span>
+          <span class="key-mod" data-mod="alt">Alt</span>
+          <span class="key-mod" data-mod="meta">Meta</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 6: focus / blur                        -->
+    <!-- ============================================ -->
+    <section class="zona" id="z6">
+      <h2><span class="num">6</span> Focus / Blur</h2>
+      <p class="descripcion">
+        Dos inputs con su "estado" al lado. Vamos a conectar <code>focus</code> y <code>blur</code>
+        para que el estado refleje cual tiene el cursor.
+      </p>
+
+      <div>
+        <input type="text" class="focus-input" id="focus-1" placeholder="Input 1" />
+        <span class="focus-estado" id="estado-1">sin foco</span>
+      </div>
+      <div>
+        <input type="text" class="focus-input" id="focus-2" placeholder="Input 2" />
+        <span class="focus-estado" id="estado-2">sin foco</span>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 7: formulario                          -->
+    <!-- ============================================ -->
+    <section class="zona" id="z7">
+      <h2><span class="num">7</span> Formulario — submit + preventDefault</h2>
+      <p class="descripcion">
+        Este form NO tiene listener todavia. Si haces submit ahora, <strong>la pagina se recarga</strong>.
+        Vamos a interceptarlo con <code>preventDefault</code>.
+      </p>
+
+      <form id="form-demo">
+        <input type="text" name="nombre" id="form-nombre" placeholder="Tu nombre" autocomplete="off" />
+        <input type="email" name="email" id="form-email" placeholder="Tu email" autocomplete="off" />
+        <button type="submit">Enviar formulario</button>
+      </form>
+
+      <div class="log" id="log-z7"></div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 8: scroll                              -->
+    <!-- ============================================ -->
+    <section class="zona" id="z8">
+      <h2><span class="num">8</span> Scroll</h2>
+      <p class="descripcion">
+        Un recuadro con contenido alto (800px) para scrollear adentro. Vamos a conectar
+        <code>scroll</code> para llenar la barra de progreso, y el boton "Volver arriba"
+        para usar <code>scrollTo</code> programatico.
+      </p>
+
+      <div id="zona-scroll">
+        <div id="scroll-progress">scroll: 0px (conecta el JS)</div>
+        <div class="scroll-bar"><div class="scroll-bar-fill" id="scroll-bar-fill"></div></div>
+        <div id="zona-scroll-inner">
+          <p style="top: 20px;">— inicio del area scrollable —</p>
+          <p style="top: 200px;">25%</p>
+          <p style="top: 400px;">50%</p>
+          <p style="top: 600px;">75%</p>
+          <p style="top: 770px;">— fin —</p>
+        </div>
+      </div>
+      <button id="btn-volver-arriba">↑ Volver arriba</button>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 9: resize                              -->
+    <!-- ============================================ -->
+    <section class="zona" id="z9">
+      <h2><span class="num">9</span> Resize y eventos globales</h2>
+      <p class="descripcion">
+        Un cartel que va a mostrar el ancho y alto de la ventana en vivo cuando conectemos
+        <code>window.addEventListener("resize", ...)</code>.
+      </p>
+
+      <div id="zona-resize">
+        <div id="zona-resize-info">esperando resize (conecta el JS)</div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 10: bubbling                           -->
+    <!-- ============================================ -->
+    <section class="zona" id="z10">
+      <h2><span class="num">10</span> Event bubbling</h2>
+      <p class="descripcion">
+        Tres cajas anidadas (abuelo / padre / hijo). Vamos a conectar un listener de click en
+        cada una y ver como el evento "burbujea" hacia arriba cuando se hace click en el hijo.
+      </p>
+
+      <div class="burbuja abuelo" id="burb-abuelo">
+        abuelo
+        <div class="burbuja padre" id="burb-padre">
+          padre
+          <div class="burbuja hijo" id="burb-hijo">hijo — click aqui</div>
+        </div>
+      </div>
+
+      <div class="log" id="log-z10"></div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 11: delegation                         -->
+    <!-- ============================================ -->
+    <section class="zona" id="z11">
+      <h2><span class="num">11</span> Event delegation</h2>
+      <p class="descripcion">
+        Una lista vacia y un boton para agregar items. Vamos a construir todo: array de tareas,
+        funcion renderizar, UN solo listener en el padre que maneja click en el texto y en la X.
+      </p>
+
+      <ul id="lista-delegation"></ul>
+      <button id="btn-delegation-add">+ Agregar item</button>
+
+      <div class="log" id="log-z11" style="margin-top:14px;"></div>
+    </section>
+
+    <script src="sandbox-eventos.js"></script>
+  </body>
+</html>

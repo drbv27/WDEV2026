@@ -72,7 +72,7 @@ function aplicarFiltros(){
     const btnActivo = d.querySelector(".filtros button.activo")
     //console.log(btnActivo)
     const generoActivo = btnActivo ? btnActivo.dataset.genero : "todos";
-    c//onsole.log(generoActivo)
+    //console.log(generoActivo)
     if(generoActivo !== "todos"){
         lista = lista.filter( c => c.genero ===generoActivo )
     }
