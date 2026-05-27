@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandbox Formularios - Clase 10</title>
+    <link rel="stylesheet" href="sandbox-formularios.css" />
+  </head>
+  <body>
+    <h1>Sandbox de Formularios</h1>
+    <p class="subtitulo">Clase 10 — bloque 2. Vamos a construir el JS en vivo, zona por zona.</p>
+
+    <div class="info-top">
+      <strong>Como funciona:</strong> HTML y CSS listos. El archivo <code>sandbox-formularios.js</code>
+      esta <strong>vacio</strong>. Lo vamos llenando en clase siguiendo la guia. Para cada zona,
+      <kbd>Ctrl+S</kbd> + <kbd>F5</kbd> y ven el efecto.
+    </div>
+
+    <div class="indice">
+      <h3>Indice de zonas</h3>
+      <ol>
+        <li><a href="#z1">Tipos de input + leer valores</a></li>
+        <li><a href="#z2">Validacion nativa HTML5</a></li>
+        <li><a href="#z3">FormData — leer todo de una</a></li>
+        <li><a href="#z4">Mensajes de error en linea</a></li>
+        <li><a href="#z5">Mini-practica: formulario de registro</a></li>
+      </ol>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- ZONA 1: tipos de input                      -->
+    <!-- ============================================ -->
+    <section class="zona" id="z1">
+      <h2><span class="num">1</span> Tipos de input + leer valores</h2>
+      <p class="descripcion">
+        Un form con todos los tipos juntos. Vamos a leer cada uno desde JS y mostrar el objeto
+        resultante. Cuidado con <code>checkbox</code>/<code>radio</code> (se leen con <code>.checked</code>,
+        no con <code>.value</code>).
+      </p>
+
+      <div class="campo">
+        <label for="inp-nombre">Nombre</label>
+        <input type="text" id="inp-nombre" placeholder="Tu nombre" />
+      </div>
+
+      <div class="row-2">
+        <div class="campo">
+          <label for="inp-email">Email</label>
+          <input type="email" id="inp-email" placeholder="tu@email.com" />
+        </div>
+        <div class="campo">
+          <label for="inp-edad">Edad</label>
+          <input type="number" id="inp-edad" placeholder="18" />
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="campo">
+          <label for="inp-fecha">Fecha de nacimiento</label>
+          <input type="date" id="inp-fecha" />
+        </div>
+        <div class="campo">
+          <label for="inp-pais">Pais</label>
+          <select id="inp-pais">
+            <option value="">— elige uno —</option>
+            <option value="ar">Argentina</option>
+            <option value="co">Colombia</option>
+            <option value="mx">Mexico</option>
+            <option value="es">Espana</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Genero</label>
+        <div class="radio-group">
+          <div class="radio-row">
+            <input type="radio" id="g-f" name="genero" value="femenino" />
+            <label for="g-f">Femenino</label>
+          </div>
+          <div class="radio-row">
+            <input type="radio" id="g-m" name="genero" value="masculino" />
+            <label for="g-m">Masculino</label>
+          </div>
+          <div class="radio-row">
+            <input type="radio" id="g-x" name="genero" value="otro" />
+            <label for="g-x">Otro / Prefiero no decir</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Hobbies (multiples)</label>
+        <div class="check-group">
+          <div class="check-row">
+            <input type="checkbox" id="h-leer" name="hobby" value="leer" />
+            <label for="h-leer">Leer</label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" id="h-musica" name="hobby" value="musica" />
+            <label for="h-musica">Musica</label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" id="h-deporte" name="hobby" value="deporte" />
+            <label for="h-deporte">Deporte</label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" id="h-cine" name="hobby" value="cine" />
+            <label for="h-cine">Cine</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="check-row" style="margin: 8px 0;">
+        <input type="checkbox" id="inp-terminos" />
+        <label for="inp-terminos">Acepto los terminos</label>
+      </div>
+
+      <div class="acciones">
+        <button type="button" id="btn-leer-todo" class="btn-primary">Leer todo</button>
+      </div>
+
+      <div class="salida" id="salida-z1"></div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 2: validacion HTML5                    -->
+    <!-- ============================================ -->
+    <section class="zona" id="z2">
+      <h2><span class="num">2</span> Validacion nativa HTML5</h2>
+      <p class="descripcion">
+        Atributos <code>required</code>, <code>pattern</code>, <code>min</code>/<code>max</code>,
+        <code>minlength</code>. El navegador valida solo, el CSS aplica <code>:valid</code>/<code>:invalid</code>.
+        Intenta enviar el form vacio o con datos invalidos para ver el mensaje nativo.
+      </p>
+
+      <form id="form-validacion" novalidate-experimental>
+        <div class="campo">
+          <label for="v-nombre">Nombre <span class="opt">(min 3 letras, solo letras)</span></label>
+          <input
+            type="text"
+            id="v-nombre"
+            name="nombre"
+            placeholder=" "
+            required
+            minlength="3"
+            pattern="[A-Za-zÀ-ÿ ]+"
+            title="Solo letras y espacios"
+          />
+        </div>
+
+        <div class="row-2">
+          <div class="campo">
+            <label for="v-email">Email</label>
+            <input type="email" id="v-email" name="email" placeholder=" " required />
+          </div>
+          <div class="campo">
+            <label for="v-edad">Edad <span class="opt">(18-120)</span></label>
+            <input
+              type="number"
+              id="v-edad"
+              name="edad"
+              placeholder=" "
+              required
+              min="18"
+              max="120"
+            />
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="v-telefono">Telefono <span class="opt">(formato: 123-456-7890)</span></label>
+          <input
+            type="tel"
+            id="v-telefono"
+            name="telefono"
+            placeholder=" "
+            pattern="\d{3}-\d{3}-\d{4}"
+            title="Formato: 123-456-7890"
+          />
+        </div>
+
+        <div class="acciones">
+          <button type="submit" class="btn-primary">Enviar</button>
+          <button type="reset">Limpiar</button>
+        </div>
+
+        <div class="salida" id="salida-z2" style="margin-top: 12px;"></div>
+      </form>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 3: FormData                            -->
+    <!-- ============================================ -->
+    <section class="zona" id="z3">
+      <h2><span class="num">3</span> FormData — leer todo de una</h2>
+      <p class="descripcion">
+        En vez de leer input por input, <code>new FormData(form)</code> los toma todos juntos.
+        Con <code>Object.fromEntries</code> sale un objeto plano listo para enviar al server.
+      </p>
+
+      <form id="form-formdata">
+        <div class="row-2">
+          <div class="campo">
+            <label for="fd-nombre">Nombre</label>
+            <input type="text" id="fd-nombre" name="nombre" placeholder=" " required />
+          </div>
+          <div class="campo">
+            <label for="fd-email">Email</label>
+            <input type="email" id="fd-email" name="email" placeholder=" " required />
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="fd-mensaje">Mensaje</label>
+          <textarea id="fd-mensaje" name="mensaje" rows="3" placeholder=" "></textarea>
+        </div>
+
+        <div class="campo">
+          <label>Intereses (multiples, mismo name="intereses")</label>
+          <div class="check-group">
+            <div class="check-row">
+              <input type="checkbox" id="fd-i1" name="intereses" value="frontend" />
+              <label for="fd-i1">Frontend</label>
+            </div>
+            <div class="check-row">
+              <input type="checkbox" id="fd-i2" name="intereses" value="backend" />
+              <label for="fd-i2">Backend</label>
+            </div>
+            <div class="check-row">
+              <input type="checkbox" id="fd-i3" name="intereses" value="diseno" />
+              <label for="fd-i3">Diseno</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="acciones">
+          <button type="submit" class="btn-primary">Leer con FormData</button>
+        </div>
+
+        <div class="salida" id="salida-z3" style="margin-top: 12px;"></div>
+      </form>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 4: errores en linea                    -->
+    <!-- ============================================ -->
+    <section class="zona" id="z4">
+      <h2><span class="num">4</span> Mensajes de error en linea</h2>
+      <p class="descripcion">
+        Cada campo tiene un <code>&lt;small class="error"&gt;</code> debajo. JS escucha el
+        <code>blur</code> y, segun <code>input.validity</code>, muestra el mensaje correcto.
+        Al hacer submit valida todo y enfoca el primer error.
+      </p>
+
+      <form id="form-errores">
+        <div class="campo">
+          <label for="e-nombre">Nombre <span class="opt">(min 3)</span></label>
+          <input type="text" id="e-nombre" name="nombre" placeholder=" " required minlength="3" />
+          <small class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="e-email">Email</label>
+          <input type="email" id="e-email" name="email" placeholder=" " required />
+          <small class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="e-codigo">Codigo postal <span class="opt">(4 digitos)</span></label>
+          <input
+            type="text"
+            id="e-codigo"
+            name="codigo"
+            placeholder=" "
+            required
+            pattern="\d{4}"
+            title="4 digitos"
+          />
+          <small class="error"></small>
+        </div>
+
+        <div class="acciones">
+          <button type="submit" class="btn-primary">Enviar</button>
+        </div>
+
+        <div class="salida" id="salida-z4" style="margin-top: 12px;"></div>
+      </form>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ZONA 5: mini-practica registro              -->
+    <!-- ============================================ -->
+    <section class="zona" id="z5">
+      <h2><span class="num">5</span> Mini-practica: formulario de registro</h2>
+      <p class="descripcion">
+        Combina todo lo de hoy: validacion nativa + estilos visuales + errores en linea +
+        FormData + validacion custom (las dos passwords deben coincidir).
+      </p>
+
+      <form id="form-registro">
+        <div class="campo">
+          <label for="reg-nombre">Nombre completo</label>
+          <input
+            type="text"
+            id="reg-nombre"
+            name="nombre"
+            placeholder=" "
+            required
+            minlength="3"
+          />
+          <small class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="reg-email">Email</label>
+          <input type="email" id="reg-email" name="email" placeholder=" " required />
+          <small class="error"></small>
+        </div>
+
+        <div class="row-2">
+          <div class="campo">
+            <label for="reg-pass">Contrasenia <span class="opt">(min 8, 1 numero)</span></label>
+            <input
+              type="password"
+              id="reg-pass"
+              name="password"
+              placeholder=" "
+              required
+              minlength="8"
+              pattern="(?=.*\d).{8,}"
+              title="Minimo 8 caracteres con al menos 1 numero"
+            />
+            <small class="error"></small>
+          </div>
+          <div class="campo">
+            <label for="reg-pass2">Confirmar contrasenia</label>
+            <input
+              type="password"
+              id="reg-pass2"
+              name="password2"
+              placeholder=" "
+              required
+            />
+            <small class="error"></small>
+          </div>
+        </div>
+
+        <div class="row-2">
+          <div class="campo">
+            <label for="reg-fecha">Fecha de nacimiento</label>
+            <input type="date" id="reg-fecha" name="fechaNac" required />
+            <small class="error"></small>
+          </div>
+          <div class="campo">
+            <label for="reg-pais">Pais</label>
+            <select id="reg-pais" name="pais" required>
+              <option value="">— elige —</option>
+              <option value="ar">Argentina</option>
+              <option value="co">Colombia</option>
+              <option value="mx">Mexico</option>
+              <option value="es">Espana</option>
+              <option value="otro">Otro</option>
+            </select>
+            <small class="error"></small>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label>Hobbies <span class="opt">(opcional)</span></label>
+          <div class="check-group">
+            <div class="check-row">
+              <input type="checkbox" id="reg-h1" name="hobbies" value="leer" />
+              <label for="reg-h1">Leer</label>
+            </div>
+            <div class="check-row">
+              <input type="checkbox" id="reg-h2" name="hobbies" value="musica" />
+              <label for="reg-h2">Musica</label>
+            </div>
+            <div class="check-row">
+              <input type="checkbox" id="reg-h3" name="hobbies" value="deporte" />
+              <label for="reg-h3">Deporte</label>
+            </div>
+            <div class="check-row">
+              <input type="checkbox" id="reg-h4" name="hobbies" value="cine" />
+              <label for="reg-h4">Cine</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="check-row" style="margin: 6px 0 12px;">
+          <input type="checkbox" id="reg-terminos" name="terminos" required />
+          <label for="reg-terminos">Acepto los terminos y condiciones</label>
+        </div>
+
+        <div class="acciones">
+          <button type="submit" class="btn-primary">Crear cuenta</button>
+          <button type="reset">Limpiar</button>
+        </div>
+
+        <div class="salida" id="salida-z5" style="margin-top: 12px;"></div>
+      </form>
+    </section>
+
+    <script src="sandbox-formularios.js"></script>
+  </body>
+</html>
