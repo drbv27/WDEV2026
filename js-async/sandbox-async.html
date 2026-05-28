@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandbox Asincronismo - Clase 11</title>
+    <link rel="stylesheet" href="sandbox-async.css" />
+  </head>
+  <body>
+    <h1>Sandbox de Asincronismo</h1>
+    <p class="subtitulo">Clase 11 — todo se simula con setTimeout. Construimos el JS en vivo, zona por zona.</p>
+
+    <div class="info-top">
+      <strong>Como funciona:</strong> HTML y CSS listos. <code>sandbox-async.js</code> trae solo un
+      helper <code>log(zonaId, mensaje)</code> ya escrito (para mostrar mensajes con la hora exacta).
+      Todo lo demas — el codigo de async — lo escribimos en clase. Cada log lleva un
+      <strong>timestamp</strong>: presta atencion al ORDEN y a los TIEMPOS, ahi esta toda la magia del async.
+    </div>
+
+    <div class="indice">
+      <h3>Indice de zonas</h3>
+      <ol>
+        <li><a href="#z1">El orden de ejecucion</a></li>
+        <li><a href="#z2">setTimeout — no bloquea</a></li>
+        <li><a href="#z3">Callbacks</a></li>
+        <li><a href="#z4">Callback hell</a></li>
+        <li><a href="#z5">Promises (crear y consumir)</a></li>
+        <li><a href="#z6">Encadenar promises</a></li>
+        <li><a href="#z7">async / await + try/catch</a></li>
+        <li><a href="#z8">Promise.all (serie vs paralelo)</a></li>
+      </ol>
+    </div>
+
+    <!-- ZONA 1 -->
+    <section class="zona" id="z1">
+      <h2><span class="num">1</span> El orden de ejecucion</h2>
+      <p class="descripcion">
+        JavaScript ejecuta linea por linea (sincrono), PERO lo que va en un <code>setTimeout</code>
+        se "aparta" para despues. Vamos a imprimir 1, 2 (en timeout 0ms) y 3, y ver en que orden salen.
+      </p>
+      <div class="fila">
+        <button class="btn-primary" id="btn-z1">Ejecutar</button>
+        <button id="limpiar-z1">Limpiar log</button>
+      </div>
+      <div class="log" id="log-z1"></div>
+    </section>
+
+    <!-- ZONA 2 -->
+    <section class="zona" id="z2">
+      <h2><span class="num">2</span> setTimeout — el codigo no se bloquea</h2>
+      <p class="descripcion">
+        Pedimos "esperar 2 segundos" pero el resto del codigo sigue corriendo de inmediato.
+        El navegador NO se congela mientras espera.
+      </p>
+      <div class="fila">
+        <button class="btn-primary" id="btn-z2">Esperar 2 segundos</button>
+        <button id="limpiar-z2">Limpiar log</button>
+      </div>
+      <div class="log" id="log-z2"></div>
+    </section>
+
+    <!-- ZONA 3 -->
+    <section class="zona" id="z3">
+      <h2><span class="num">3</span> Callbacks — "avisame cuando termines"</h2>
+      <p class="descripcion">
+        Un callback es una funcion que le pasamos a otra para que la ejecute <strong>cuando termine</strong>
+        su trabajo. Simulamos cocinar un plato: tarda, y cuando esta listo, llama al callback.
+      </p>
+      <div class="fila">
+        <button class="btn-primary" id="btn-z3">Pedir pizza</button>
+        <button id="limpiar-z3">Limpiar log</button>
+      </div>
+      <div class="log" id="log-z3"></div>
+    </section>
+
+    <!-- ZONA 4 -->
+    <section class="zona" id="z4">
+      <h2><span class="num">4</span> Callback hell — la piramide de la muerte</h2>
+      <p class="descripcion">
+        Cuando una operacion async depende de otra, que depende de otra... los callbacks se anidan
+        y el codigo se va hacia la derecha. Mira la sangria en el editor: es un sintoma de que algo
+        se puede mejorar (con Promises).
+      </p>
+      <div class="fila">
+        <button class="btn-primary" id="btn-z4">Ejecutar flujo anidado</button>
+        <button id="limpiar-z4">Limpiar log</button>
+      </div>
+      <div class="log" id="log-z4"></div>
+    </section>
+
+    <!-- ZONA 5 -->
+    <section class="zona" id="z5">
+      <h2><span class="num">5</span> Promises — crear y consumir</h2>
+      <p class="descripcion">
+        Una Promise es un objeto que representa "un valor que llegara". Tiene 3 estados:
+        <strong>pending</strong> (esperando), <strong>fulfilled</strong> (resuelta con <code>resolve</code>)
+        y <strong>rejected</strong> (fallo con <code>reject</code>). Se consumen con
+        <code>.then</code> / <code>.catch</code> / <code>.finally</code>.
+      </p>
+      <div class="fila">
+        <button class="btn-primary" id="btn-z5-ok">Cocinar pasta (exito)</button>
+        <button class="btn-danger" id="btn-z5-err">Cocinar veneno (error)</button>
+        <button id="limpiar-z5">Limpiar log</button>
+      </div>
+      <div class="log" id="log-z5"></div>
+    </section>
+
+    <!-- ZONA 6 -->
+    <section class="zona" id="z6">
+      <h2><span class="num">6</span> Encadenar promises — adios piramide</h2>
+      <p class="descripcion">
+        El mismo flujo de la zona 4, pero con Promises encadenadas con <code>.then</code>.
+        El codigo queda <strong>plano</strong> en vez de piramidal.
+      </p>
+      <div class="fila">
+        <button class="btn-primary" id="btn-z6">Ejecutar flujo encadenado</button>
+        <button id="limpiar-z6">Limpiar log</button>
+      </div>
+      <div class="log" id="log-z6"></div>
+    </section>
+
+    <!-- ZONA 7 -->
+    <section class="zona" id="z7">
+      <h2><span class="num">7</span> async / await + try/catch</h2>
+      <p class="descripcion">
+        La forma moderna. <code>await</code> "pausa" dentro de una funcion <code>async</code> hasta que
+        la promise se resuelve. Se lee como codigo sincrono, pero NO bloquea. Los errores se atrapan
+        con <code>try/catch</code>.
+      </p>
+      <div class="fila">
+        <button class="btn-primary" id="btn-z7-ok">Flujo exitoso</button>
+        <button class="btn-danger" id="btn-z7-err">Flujo con error</button>
+        <button id="limpiar-z7">Limpiar log</button>
+      </div>
+      <div class="log" id="log-z7"></div>
+    </section>
+
+    <!-- ZONA 8 -->
+    <section class="zona" id="z8">
+      <h2><span class="num">8</span> Promise.all — serie vs paralelo</h2>
+      <p class="descripcion">
+        Tres tareas de 1 segundo cada una. Si las hacemos <strong>en serie</strong> (await uno por uno),
+        tardan ~3s. Si las lanzamos <strong>en paralelo</strong> con <code>Promise.all</code>, tardan ~1s.
+        Mira los timestamps: la diferencia es enorme.
+      </p>
+      <div class="fila">
+        <button class="btn-azul" id="btn-z8-serie">En serie (~3s)</button>
+        <button class="btn-primary" id="btn-z8-paralelo">En paralelo (~1s)</button>
+        <button id="limpiar-z8">Limpiar log</button>
+      </div>
+      <div class="log" id="log-z8"></div>
+    </section>
+
+    <script src="sandbox-async.js"></script>
+  </body>
+</html>
