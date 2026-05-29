@@ -235,3 +235,38 @@ d.getElementById("btn-z7-ok")
 // =============================================================
 // ZONA 8: Promise.all (serie vs paralelo)
 // =============================================================
+function tarea(nombre,ms){
+    return new Promise(resolve => {
+        setTimeout(() => {
+            log("log-z8",`${nombre} (${ms}ms) termino`)
+            resolve(nombre);
+        }, ms);
+    })
+}
+
+d.getElementById("btn-z8-serie")
+    .addEventListener("click",async ()=>{
+        log("log-z8","---EN SERIE UNA TRAS OTRA---")
+        const inicio = Date.now()
+
+        await tarea("A",1000)
+        await tarea("B",1000)
+        await tarea("C",1000)
+
+        log("log-z8",`Total en serie: ${Date.now()-inicio} ms (~3000ms) `)
+    })
+
+d.getElementById("btn-z8-paralelo")
+    .addEventListener("click",async ()=>{
+        log("log-z8","---EN PARALELO todas a la vez---")
+        const inicio = Date.now()
+
+        const resultados = await Promise.all([
+            tarea("A",1000),
+            tarea("B",1000),
+            tarea("C",1000)
+        ])
+
+        log("log-z8","Resultados: "+ resultados.join(", "))
+        log("log-z8", `Total en paralelo: ${Date.now()-inicio}ms (~1000 ms)`)
+    })

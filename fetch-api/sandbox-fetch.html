@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandbox Fetch + APIs - Clase 12</title>
+    <link rel="stylesheet" href="sandbox-fetch.css" />
+  </head>
+  <body>
+    <h1>Sandbox de Fetch + APIs reales</h1>
+    <p class="subtitulo">Clase 12 — fetch, async/await, JSONPlaceholder, PokeAPI, OpenWeather, Axios.</p>
+
+    <div class="info-top">
+      <strong>Como funciona:</strong> HTML y CSS listos. <code>sandbox-fetch.js</code> esta vacio,
+      lo escribimos en clase. Para usar la API de OpenWeather necesitas una <strong>API key gratis</strong>:
+      crea cuenta en <code>openweathermap.org</code> (5 minutos) y pega la key en el input de la Zona 5.
+    </div>
+
+    <div class="indice">
+      <h3>Indice de zonas</h3>
+      <ol>
+        <li><a href="#z1">fetch basico con .then</a></li>
+        <li><a href="#z2">async/await + manejo de errores</a></li>
+        <li><a href="#z3">JSONPlaceholder: listado de posts</a></li>
+        <li><a href="#z4">PokeAPI: buscador de Pokemon</a></li>
+        <li><a href="#z5">OpenWeather: clima por ciudad</a></li>
+        <li><a href="#z6">Axios: comparacion con fetch</a></li>
+      </ol>
+    </div>
+
+    <!-- ZONA 1: fetch basico -->
+    <section class="zona" id="z1">
+      <h2>
+        <span class="num">1</span>
+        fetch basico con .then
+        <span class="api-tag">JSONPlaceholder</span>
+      </h2>
+      <p class="descripcion">
+        El primer <code>fetch</code> de su vida. Pedimos el post #1 a JSONPlaceholder.
+        <code>fetch</code> devuelve una <strong>Promise</strong>: encadenamos
+        <code>.then(res =&gt; res.json())</code> para parsear el JSON, y otro <code>.then</code> para usarlo.
+      </p>
+      <div class="fila">
+        <button class="btn-primary" id="btn-z1">Traer post #1</button>
+        <button id="limpiar-z1">Limpiar</button>
+      </div>
+      <div class="log" id="log-z1"></div>
+    </section>
+
+    <!-- ZONA 2: async/await + errores -->
+    <section class="zona" id="z2">
+      <h2>
+        <span class="num">2</span>
+        async/await + manejo de errores HTTP
+        <span class="api-tag">JSONPlaceholder</span>
+      </h2>
+      <p class="descripcion">
+        Mismo fetch, version moderna. Probamos un id <strong>valido</strong> y uno <strong>invalido</strong>
+        para ver como manejar el caso de error: <code>response.ok</code> y <code>response.status</code>.
+      </p>
+      <div class="fila">
+        <input type="number" id="inp-id" value="1" min="1" placeholder="ID del post" style="width:100px;" />
+        <button class="btn-primary" id="btn-z2-ok">Traer (id valido: 1-100)</button>
+        <button class="btn-azul" id="btn-z2-err">Traer id 9999 (404)</button>
+        <button id="limpiar-z2">Limpiar</button>
+      </div>
+      <div class="log" id="log-z2"></div>
+    </section>
+
+    <!-- ZONA 3: JSONPlaceholder posts grid -->
+    <section class="zona" id="z3">
+      <h2>
+        <span class="num">3</span>
+        JSONPlaceholder: listado de posts
+        <span class="api-tag">JSONPlaceholder</span>
+      </h2>
+      <p class="descripcion">
+        Pedimos <strong>todos los posts</strong> a la API y los renderizamos como tarjetas en el DOM.
+        Aqui mezclamos lo de la clase 8 (renderizar arrays) con fetch.
+      </p>
+      <div class="fila">
+        <button class="btn-primary" id="btn-z3-cargar">Cargar 10 posts</button>
+        <button class="btn-azul" id="btn-z3-usuarios">Cargar usuarios</button>
+        <button id="limpiar-z3">Limpiar</button>
+      </div>
+      <div class="resultado" id="resultado-z3"></div>
+    </section>
+
+    <!-- ZONA 4: PokeAPI -->
+    <section class="zona" id="z4">
+      <h2>
+        <span class="num">4</span>
+        PokeAPI: buscador
+        <span class="api-tag">PokeAPI</span>
+      </h2>
+      <p class="descripcion">
+        Buscar un Pokemon por nombre y mostrar su sprite, tipos y stats.
+        Maneja el caso "no existe" (error 404) para ver como atrapar errores HTTP reales.
+      </p>
+      <div class="fila">
+        <input type="text" id="inp-pokemon" placeholder="pikachu, charizard, mewtwo..." value="pikachu" style="flex:1;min-width:200px;" />
+        <button class="btn-primary" id="btn-z4">Buscar</button>
+        <button id="limpiar-z4">Limpiar</button>
+      </div>
+      <div class="resultado" id="resultado-z4"></div>
+    </section>
+
+    <!-- ZONA 5: OpenWeather -->
+    <section class="zona" id="z5">
+      <h2>
+        <span class="num">5</span>
+        OpenWeather: clima por ciudad
+        <span class="api-tag">OpenWeather</span>
+      </h2>
+      <p class="descripcion">
+        Consultar el clima actual. Esta API <strong>requiere una key gratis</strong>:
+        crea cuenta en <code>openweathermap.org</code>, copia tu key y pegala abajo.
+        Aprenderemos a pasar <strong>query params</strong> (<code>?q=...&amp;appid=...</code>).
+      </p>
+
+      <div class="api-key-row">
+        <label for="inp-apikey">API key:</label>
+        <input type="password" id="inp-apikey" placeholder="Pega tu key de openweathermap.org" />
+      </div>
+
+      <div class="fila">
+        <input type="text" id="inp-ciudad" placeholder="Bogota, Madrid, Buenos Aires..." value="Bogota" style="flex:1;min-width:200px;" />
+        <button class="btn-primary" id="btn-z5">Consultar clima</button>
+        <button id="limpiar-z5">Limpiar</button>
+      </div>
+      <div class="resultado" id="resultado-z5"></div>
+    </section>
+
+    <!-- ZONA 6: Axios -->
+    <section class="zona" id="z6">
+      <h2>
+        <span class="num">6</span>
+        Axios: la alternativa a fetch
+        <span class="api-tag">cualquier API</span>
+      </h2>
+      <p class="descripcion">
+        Axios es una libreria muy popular para HTTP. Se carga desde CDN. Tiene 3 ventajas grandes
+        sobre fetch: parsea el JSON automaticamente, lanza error en 4xx/5xx (sin tener que chequear
+        <code>response.ok</code>) y maneja mejor configuracion comun (headers, timeouts).
+      </p>
+      <div class="fila">
+        <button class="btn-primary" id="btn-z6-fetch">Con fetch (post #1)</button>
+        <button class="btn-azul" id="btn-z6-axios">Con Axios (post #1)</button>
+        <button id="limpiar-z6">Limpiar</button>
+      </div>
+      <div class="log" id="log-z6"></div>
+    </section>
+
+    <!-- Axios desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
+    <script src="sandbox-fetch.js"></script>
+  </body>
+</html>
